@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox maxHeight="-Infinity" fx:controller="com.happytails.controllers.LoginPageController" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="451.0" prefWidth="898.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="451.0" prefWidth="455.0">
+         <children>
+            <ImageView fitHeight="400.0" fitWidth="427.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/welcome.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane prefHeight="451.0" prefWidth="442.0" style="-fx-background-color: white;">
+         <children>
+            <MFXButton fx:id="loginBtn" buttonType="RAISED" layoutX="145.0" layoutY="369.0" onMouseClicked="#loginBtnCicked" prefHeight="47.0" prefWidth="152.0" style="-fx-background-color: #7E60BF; -fx-text-fill: white;" text="Log In">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </MFXButton>
+            <MFXTextField floatMode="BORDER" floatingText="Username or Email address" layoutX="86.0" layoutY="176.0" prefHeight="49.0" prefWidth="248.0" style="-fx-padding: 10,0,0,0;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </MFXTextField>
+            <MFXPasswordField floatMode="BORDER" floatingText="Password" layoutX="86.0" layoutY="265.0" prefHeight="49.0" prefWidth="248.0" style="-fx-padding: 10,0,0,0;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </MFXPasswordField>
+            <ImageView fitHeight="130.0" fitWidth="331.0" layoutX="56.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</HBox>
