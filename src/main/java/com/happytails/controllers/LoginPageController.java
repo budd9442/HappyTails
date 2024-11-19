@@ -15,6 +15,8 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 import java.util.Objects;
 
+//comment
+
 public class LoginPageController {
 
     @FXML
