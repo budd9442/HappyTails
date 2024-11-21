@@ -66,7 +66,7 @@ public class RegisterPageController {
         FXMLLoader fxmlLoader = new FXMLLoader(HappyTails.class.getResource("login-view.fxml"));
 
         Stage stage = new Stage();
-        stage.setTitle("Happy Tails");
+        stage.setTitle("HappyTails");
         stage.setScene( new Scene(fxmlLoader.load(), 900, 450));
         stage.show();
         LoginPageController controller = fxmlLoader.getController();

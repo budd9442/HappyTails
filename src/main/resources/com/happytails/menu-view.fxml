@@ -17,7 +17,7 @@
                <children>
                   <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="4.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@icons/icons8-home-48%20(1).png" />
+                        <Image url="@icons/light/happytails-home.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="64.0" layoutY="9.0" text="Home" textFill="WHITE">
@@ -31,7 +31,7 @@
                <children>
                   <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="4.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@icons/icons8-pet-50%20(1).png" />
+                        <Image url="@icons/light/happytails-pets.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="64.0" layoutY="9.0" text="Pets" textFill="WHITE">
@@ -45,7 +45,7 @@
                <children>
                   <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="4.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@icons/icons8-pet-48%20(1).png" />
+                        <Image url="@icons/light/happytails-profile.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="64.0" layoutY="9.0" text="Profile" textFill="WHITE">
@@ -59,7 +59,7 @@
                <children>
                   <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="4.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@icons/icons8-settings-48.png" />
+                        <Image url="@icons/light/happytails-settings.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="64.0" layoutY="9.0" text="Settings" textFill="WHITE">
