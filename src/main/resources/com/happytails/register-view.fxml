@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.happytails.controllers.RegisterPageController">
+    <children>
+        <Pane prefHeight="500.0" prefWidth="450.0">
+            <children>
+                <ImageView fitHeight="450.0" fitWidth="427.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@img/welcome.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </Pane>
+        <Pane prefHeight="500.0" prefWidth="450.0" style="-fx-background-color: white;">
+            <children>
+                <MFXTextField fx:id="nameTextBox" floatMode="BORDER" floatingText="Full Name" layoutX="86.0" layoutY="141.0" prefHeight="49.0" prefWidth="248.0">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </MFXTextField>
+                <MFXTextField fx:id="emailTextBox" floatMode="BORDER" floatingText="Email Address" layoutX="86.0" layoutY="201.0" prefHeight="49.0" prefWidth="248.0">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </MFXTextField>
+                <MFXPasswordField fx:id="passwordTextBox" floatMode="BORDER" floatingText="Password" layoutX="86.0" layoutY="261.0" prefHeight="49.0" prefWidth="248.0">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </MFXPasswordField>
+                <MFXPasswordField fx:id="confirmPasswordTextBox" floatMode="BORDER" floatingText="Confirm Password" layoutX="86.0" layoutY="322.0" prefHeight="49.0" prefWidth="248.0">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </MFXPasswordField>
+                <MFXButton fx:id="registerBtn" buttonType="RAISED" layoutX="134.0" layoutY="408.0" onMouseClicked="#registerBtnClicked" prefHeight="47.0" prefWidth="152.0" style="-fx-background-color: #7E60BF; -fx-text-fill: white;" text="Register">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </MFXButton>
+                <ImageView fitHeight="130.0" fitWidth="331.0" layoutX="60.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@img/logo.png" />
+                    </image>
+                </ImageView>
+            <Label layoutX="141.0" layoutY="469.0" onMouseClicked="#loginClicked" text="Already registered? Log in" />
+            </children>
+        </Pane>
+    </children>
+</HBox>

@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import io.github.palexdev.materialfx.controls.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" fx:controller="com.happytails.controllers.LoginPageController" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="451.0" prefWidth="898.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="451.0" prefWidth="898.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.happytails.controllers.LoginPageController">
    <children>
       <Pane prefHeight="451.0" prefWidth="455.0">
          <children>
@@ -18,17 +23,17 @@
       </Pane>
       <Pane prefHeight="451.0" prefWidth="442.0" style="-fx-background-color: white;">
          <children>
-            <MFXButton fx:id="loginBtn" buttonType="RAISED" layoutX="145.0" layoutY="369.0" onMouseClicked="#loginBtnCicked" prefHeight="47.0" prefWidth="152.0" style="-fx-background-color: #7E60BF; -fx-text-fill: white;" text="Log In">
+            <MFXButton fx:id="loginBtn" buttonType="RAISED" layoutX="145.0" layoutY="355.0" onMouseClicked="#loginBtnCicked" prefHeight="47.0" prefWidth="152.0" style="-fx-background-color: #7E60BF; -fx-text-fill: white;" text="Log In">
                <font>
                   <Font size="18.0" />
                </font>
             </MFXButton>
-            <MFXTextField floatMode="BORDER" floatingText="Username or Email address" layoutX="86.0" layoutY="176.0" prefHeight="49.0" prefWidth="248.0" style="-fx-padding: 10,0,0,0;">
+            <MFXTextField fx:id="usernameTextBox" floatMode="BORDER" floatingText="Username or Email address" layoutX="86.0" layoutY="176.0" prefHeight="49.0" prefWidth="248.0" style="-fx-padding: 10,0,0,0;" text="John@happytails.org">
                <font>
                   <Font size="14.0" />
                </font>
             </MFXTextField>
-            <MFXPasswordField floatMode="BORDER" floatingText="Password" layoutX="86.0" layoutY="265.0" prefHeight="49.0" prefWidth="248.0" style="-fx-padding: 10,0,0,0;">
+            <MFXPasswordField fx:id="passwordTextBox" floatMode="BORDER" floatingText="Password" layoutX="86.0" layoutY="265.0" prefHeight="49.0" prefWidth="248.0" style="-fx-padding: 10,0,0,0;" text="12121212">
                <font>
                   <Font size="14.0" />
                </font>
@@ -38,6 +43,7 @@
                   <Image url="@img/logo.png" />
                </image>
             </ImageView>
+            <Label layoutX="166.0" layoutY="420.0" onMouseClicked="#signUpClicked" text="No account? Sign up" />
          </children>
       </Pane>
    </children>
