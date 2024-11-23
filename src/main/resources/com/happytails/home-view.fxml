@@ -1,26 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.happytails.controllers.HomeViewController">
+<AnchorPane prefHeight="705.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.happytails.controllers.HomeViewController">
    <children>
-      <Text layoutX="502.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home View" />
-      <TilePane layoutX="14.0" layoutY="168.0" prefHeight="209.0" prefWidth="450.0">
+      <Pane layoutY="306.0" prefHeight="398.0" prefWidth="596.0">
          <children>
-            <Pane prefHeight="181.0" prefWidth="177.0" style="-fx-background-color: -mfx--mfx-purplepurple; -fx-background-radius: 15;">
+            <Pane layoutX="14.0" layoutY="14.0" prefHeight="181.0" prefWidth="177.0" style="-fx-background-color: #9B7EBD; -fx-background-radius: 15;">
                <children>
-                  <ImageView fitHeight="80.0" fitWidth="68.0" layoutX="16.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="125.0" fitWidth="155.0" layoutX="26.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@icons/light/vaccine.png" />
                      </image>
                   </ImageView>
-               </children></Pane>
+                  <Label layoutX="34.0" layoutY="147.0" text="Medical History" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="389.0" layoutY="14.0" prefHeight="181.0" prefWidth="177.0" style="-fx-background-color: #9B7EBD; -fx-background-radius: 15;">
+               <children>
+                  <ImageView fitHeight="106.0" fitWidth="98.0" layoutX="39.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icons8-growth-100.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="34.0" layoutY="147.0" text="Growth Tracker" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="202.0" layoutY="207.0" prefHeight="181.0" prefWidth="177.0" style="-fx-background-color: #A368A8; -fx-background-radius: 15;">
+               <children>
+                  <ImageView fitHeight="115.0" fitWidth="108.0" layoutX="34.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icons8-medical-history-100.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="34.0" layoutY="147.0" text="Medical History" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="202.0" layoutY="14.0" prefHeight="181.0" prefWidth="177.0" style="-fx-background-color: #9B7EBD#A368A8; -fx-background-radius: 15;">
+               <children>
+                  <ImageView fitHeight="100.0" fitWidth="98.0" layoutX="36.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icons8-vaccine-100.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="34.0" layoutY="147.0" text="Vaccinations" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="14.0" layoutY="207.0" prefHeight="181.0" prefWidth="177.0" style="-fx-background-color: #A368A8; -fx-background-radius: 15;">
+               <children>
+                  <ImageView fitHeight="115.0" fitWidth="108.0" layoutX="35.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icons8-pet-bone-100%20(2).png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="69.0" layoutY="146.0" prefHeight="21.0" prefWidth="50.0" text="Diet" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="389.0" layoutY="207.0" prefHeight="181.0" prefWidth="177.0" style="-fx-background-color: #A368A8; -fx-background-radius: 15;">
+               <children>
+                  <ImageView fitHeight="125.0" fitWidth="155.0" layoutX="26.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/light/vaccine.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="34.0" layoutY="147.0" text="Medical History" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
          </children>
-      </TilePane>
+      </Pane>
+      <Pane layoutX="14.0" layoutY="14.0" prefHeight="295.0" prefWidth="550.0" style="-fx-background-color: #9B7EBD; -fx-background-radius: 15;">
+         <children>
+            <ImageView fitHeight="173.0" fitWidth="181.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/dog.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="173.0" layoutY="25.0" text="WELCOME TO HAPPY TAILS" textFill="WHITE">
+               <font>
+                  <Font name="Calibri" size="34.0" />
+               </font>
+            </Label>
+            <Text layoutX="173.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pets are humanizing. " />
+            <Text fill="#000000a6" layoutX="173.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text layoutX="173.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pets are humanizing. " />
+         </children>
+      </Pane>
+      <Pane layoutX="576.0" layoutY="14.0" prefHeight="676.0" prefWidth="426.0" style="-fx-background-color: D4BEE4; -fx-background-radius: 15;">
+         <children>
+            <ImageView fitHeight="125.0" fitWidth="155.0" layoutX="26.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/light/vaccine.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="34.0" layoutY="147.0" text="Medical History" textFill="WHITE">
+               <font>
+                  <Font name="Calibri" size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

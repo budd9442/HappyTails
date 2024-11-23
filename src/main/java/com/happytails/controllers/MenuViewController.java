@@ -42,7 +42,7 @@ public class MenuViewController implements Initializable {
     public void profileClicked(MouseEvent mouseEvent) {
         clearHighlightedBtn();
         profileBtn.setStyle("-fx-background-color: #FFC100; -fx-background-radius: 0 30 30 0;");
-        loadView("profile-view.fxml");
+        loadView("community-view.fxml");
     }
 
     public void settingsClicked(MouseEvent mouseEvent) {
