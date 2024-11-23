@@ -1,11 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.happytails.controllers.HomeViewController">
    <children>
-      <Text layoutX="254.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pets View" />
+      <Text layoutX="14.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Pets">
+         <font>
+            <Font size="26.0" />
+         </font></Text>
+      <ImageView fitHeight="276.0" fitWidth="277.0" layoutX="51.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/dog.png" />
+         </image>
+      </ImageView>
+      <MFXListView layoutX="365.0" layoutY="63.0" prefHeight="214.0" prefWidth="178.0" />
+      <MFXButton layoutX="365.0" layoutY="302.0" prefHeight="46.0" prefWidth="178.0" style="-fx-background-color: #9B7EBD;" text="Add a Pet" textFill="#fffffe">
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font>
+      </MFXButton>
    </children>
 </AnchorPane>

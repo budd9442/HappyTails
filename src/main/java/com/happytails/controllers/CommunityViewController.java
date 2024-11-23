@@ -20,7 +20,7 @@ public class CommunityViewController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            for (int i = 0; i < 3; i++) { // Replace 6 with the number of items to load dynamically
+            for (int i = 0; i < 10; i++) { // Replace 6 with the number of items to load dynamically
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/happytails/components/community-photo.fxml"));
 
                 Node communityPhoto = loader.load();

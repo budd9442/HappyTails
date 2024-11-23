@@ -16,7 +16,6 @@ import java.util.ResourceBundle;
 public class MenuViewController implements Initializable {
 
 
-    public Pane petsBtn;
     public Pane homeBtn;
     public Pane profileBtn;
     public Pane settingsBtn;
@@ -33,11 +32,11 @@ public class MenuViewController implements Initializable {
         loadView("home-view.fxml");
     }
 
-    public void petsClicked(MouseEvent mouseEvent) {
-        clearHighlightedBtn();
-        petsBtn.setStyle("-fx-background-color: #FFC100; -fx-background-radius: 0 30 30 0;");
-        loadView("pets-view.fxml");
-    }
+//    public void petsClicked(MouseEvent mouseEvent) {
+//        clearHighlightedBtn();
+//        petsBtn.setStyle("-fx-background-color: #FFC100; -fx-background-radius: 0 30 30 0;");
+//        loadView("pets-view.fxml");
+//    }
 
     public void profileClicked(MouseEvent mouseEvent) {
         clearHighlightedBtn();
@@ -55,12 +54,23 @@ public class MenuViewController implements Initializable {
         homeBtn.setStyle("-fx-background-color: transparent;");
         profileBtn.setStyle("-fx-background-color: transparent;");
         settingsBtn.setStyle("-fx-background-color: transparent;");
-        petsBtn.setStyle("-fx-background-color: transparent;");
+        //petsBtn.setStyle("-fx-background-color: transparent;");
     }
 
     private void loadView(String fxmlFile) {
         try {
-            Parent view = FXMLLoader.load(Objects.requireNonNull(HappyTails.class.getResource(fxmlFile)));
+            FXMLLoader loader = new FXMLLoader(HappyTails.class.getResource(fxmlFile));
+            Parent view = loader.load();
+
+            if(loader.getController().getClass()==HomeViewController.class){
+                HomeViewController controller = loader.getController();
+                controller.setMainStackPane(stackPane);
+            }
+
+
+
+            //Parent view = FXMLLoader.load(Objects.requireNonNull(HappyTails.class.getResource(fxmlFile)));
+
             stackPane.getChildren().setAll(view); // Replace current content
         } catch (IOException e) {
             e.printStackTrace();

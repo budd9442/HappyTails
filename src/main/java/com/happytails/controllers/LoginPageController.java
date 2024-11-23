@@ -49,13 +49,13 @@ public class LoginPageController {
             }
             DBConnector.currentUserID = DBConnector.login(usernameTextBox.getText(),passwordTextBox.getText());
             if( DBConnector.currentUserID != null) {
-                JOptionPane.showMessageDialog(
-                        null,
-                        "Login Success!\nCurrent UID : " + DBConnector.currentUserID,
-                        "DEBUG",
-                        JOptionPane.INFORMATION_MESSAGE
-
-                );
+//                JOptionPane.showMessageDialog(
+//                        null,
+//                        "Login Success!\nCurrent UID : " + DBConnector.currentUserID,
+//                        "DEBUG",
+//                        JOptionPane.INFORMATION_MESSAGE
+//
+//                );
                 FXMLLoader fxmlLoader = new FXMLLoader(HappyTails.class.getResource("menu-view.fxml"));
                 Stage stage = new Stage();
                 stage.setTitle("Happy Tails");
