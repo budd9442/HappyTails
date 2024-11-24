@@ -3,10 +3,13 @@ package com.happytails.controllers;
 import com.happytails.HappyTails;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -62,10 +65,10 @@ public class MenuViewController implements Initializable {
             FXMLLoader loader = new FXMLLoader(HappyTails.class.getResource(fxmlFile));
             Parent view = loader.load();
 
-            if(loader.getController().getClass()==HomeViewController.class){
-                HomeViewController controller = loader.getController();
-                controller.setMainStackPane(stackPane);
-            }
+//            if(loader.getController().getClass()==HomeViewController.class){
+//                HomeViewController controller = loader.getController();
+//                controller.setMainStackPane(stackPane);
+//            }
 
 
 
@@ -75,5 +78,14 @@ public class MenuViewController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void onLogoutClick(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HappyTails.class.getResource("login-view.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("Happy Tails");
+        stage.setScene( new Scene(fxmlLoader.load(), 900, 450));
+        stage.show();
+        ((Stage) ((Node) mouseEvent.getSource()).getScene().getWindow()).close();
     }
 }

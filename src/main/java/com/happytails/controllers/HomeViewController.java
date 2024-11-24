@@ -1,6 +1,7 @@
 package com.happytails.controllers;
 
 import com.happytails.HappyTails;
+import io.github.palexdev.materialfx.controls.MFXCheckListView;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -17,17 +18,24 @@ import java.io.IOException;
 public class HomeViewController {
     public HBox petsList;
     public StackPane selectedPetImage;
+    public MFXCheckListView todoList;
+    @FXML
     private StackPane mainStackPane; // Reference to the StackPane in menu-view.fxml
 
-    public void setMainStackPane(StackPane mainStackPane) {
-        this.mainStackPane = mainStackPane;
-    }
+//    public void setMainStackPane(StackPane mainStackPane) {
+//        this.mainStackPane = mainStackPane;
+//    }
 
     @FXML
     public void initialize() {
         selectedPetImage.setClip(new Circle(100, 100, 100));
         petsList.setSpacing(10); // Distance in pixels between images
         petsList.setPadding(new Insets(10, 0, 5, 0)); // Optional: padding around the HBox
+
+        todoList.getItems().add("Shower");
+        todoList.getItems().add("Go for a walk");
+        todoList.getItems().add("PLaytime");
+
 
         // URLs for your round images
         String[] imageUrls = {
@@ -38,6 +46,7 @@ public class HomeViewController {
         };
 
         for (String url : imageUrls) {
+
             // Create an ImageView for each image
             ImageView imageView = new ImageView(new Image(HappyTails.class.getResource("img/dogg.jpg").toString()));
             imageView.setFitWidth(70); // Match wrapper size
@@ -70,10 +79,24 @@ public class HomeViewController {
             // Load the growth-tracker.fxml
             FXMLLoader loader = new FXMLLoader(HappyTails.class.getResource("growth-tracker.fxml"));
             Parent growthTrackerView = loader.load();
+            GrowthTrackerController controller = loader.getController();
+            controller.setParent(mainStackPane);
 
             // Replace the current child of the StackPane
             mainStackPane.getChildren().clear();
             mainStackPane.getChildren().add(growthTrackerView);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void onMyPetsClick(javafx.scene.input.MouseEvent mouseEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(HappyTails.class.getResource("my-pets.fxml"));
+            Parent myPetsView = loader.load();
+            //MyPetsController controller = loader.getController();
+            mainStackPane.getChildren().clear();
+            mainStackPane.getChildren().add(myPetsView);
 
         } catch (IOException e) {
             e.printStackTrace();

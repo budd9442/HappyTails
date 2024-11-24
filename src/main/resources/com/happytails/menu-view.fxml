@@ -60,9 +60,19 @@
                   <Image url="@img/logo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="198.0" fitWidth="200.0" layoutX="23.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="198.0" fitWidth="200.0" layoutX="26.0" layoutY="450.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/welcome.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="47.0" layoutX="71.0" layoutY="654.0" onMouseClicked="#onLogoutClick" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/light/happytails-logout.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="39.0" layoutX="137.0" layoutY="657.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/light/icons8-github-50.png" />
                </image>
             </ImageView>
          </children>

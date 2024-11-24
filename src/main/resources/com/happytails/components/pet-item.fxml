@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="415.0" prefWidth="300.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.happytails.controllers.PetItemController">
+   <children>
+      <Pane prefHeight="422.0" prefWidth="300.0" style="-fx-background-radius: 30; -fx-background-color: white;">
+         <children>
+            <ImageView fx:id="petImage" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../img/dogg.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="nameLabel" layoutX="34.0" layoutY="331.0" text="Pet Name">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="ageLabel" layoutX="200.0" layoutY="335.0" text="Pet Age">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="typeLabel" layoutX="34.0" layoutY="375.0" text="Type : Breed">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

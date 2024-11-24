@@ -3,19 +3,23 @@
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 
-<Pane prefHeight="706.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.happytails.controllers.GrowthTrackerController">
+<Pane prefHeight="706.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.happytails.controllers.MyPetsController">
    <children>
       <Pane layoutX="10.0" layoutY="10.0" />
-      <StackPane fx:id="weightPane" layoutX="14.0" layoutY="43.0" prefHeight="305.0" prefWidth="572.0" />
-      <StackPane fx:id="heightPane" layoutX="15.0" layoutY="364.0" prefHeight="305.0" prefWidth="572.0" />
-      <MFXButton layoutX="426.0" layoutY="14.0" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #A368A8;" text="Add a record" textFill="WHITE" />
+      <MFXButton layoutX="238.0" layoutY="630.0" prefHeight="25.0" prefWidth="132.0" style="-fx-background-color: #A368A8;" text="Add pet" textFill="WHITE" />
       <ImageView fitHeight="41.0" fitWidth="43.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#backBtnClicked" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/light/icons8-back-100.png" />
          </image>
       </ImageView>
+      <StackPane layoutX="31.0" layoutY="67.0" prefHeight="500.0" prefWidth="540.0">
+         <children>
+            <HBox fx:id="petsList" prefHeight="100.0" prefWidth="200.0" />
+         </children>
+      </StackPane>
    </children>
 </Pane>
