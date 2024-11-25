@@ -18,7 +18,7 @@ import java.io.IOException;
 public class HomeViewController {
     public HBox petsList;
     public StackPane selectedPetImage;
-    public MFXCheckListView todoList;
+
     @FXML
     private StackPane mainStackPane; // Reference to the StackPane in menu-view.fxml
 
@@ -32,9 +32,9 @@ public class HomeViewController {
         petsList.setSpacing(10); // Distance in pixels between images
         petsList.setPadding(new Insets(10, 0, 5, 0)); // Optional: padding around the HBox
 
-        todoList.getItems().add("Shower");
-        todoList.getItems().add("Go for a walk");
-        todoList.getItems().add("PLaytime");
+//        todoList.getItems().add("Shower");
+//        todoList.getItems().add("Go for a walk");
+//        todoList.getItems().add("PLaytime");
 
 
         // URLs for your round images
