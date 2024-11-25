@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import io.github.palexdev.materialfx.controls.MFXCheckListView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -8,6 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -26,7 +26,7 @@
                                     <Font name="Calibri" size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="100.0" fitWidth="98.0" layoutX="40.0" layoutY="32.0" onMouseClicked="#onMyPetsClick" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="100.0" fitWidth="98.0" layoutX="40.0" layoutY="42.0" onMouseClicked="#onMyPetsClick" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@icons/light/happytails-pets.png" />
                                  </image>
@@ -143,12 +143,12 @@
                   <Font name="Calibri" size="17.0" />
                </font>
             </Label>
-            <MFXCheckListView fx:id="todoList" layoutX="46.0" layoutY="347.0" prefHeight="279.0" prefWidth="334.0" style="-fx-background-color: transparent;" thumbColor="#e4c4df" thumbHoverColor="#e186d2" />
             <ImageView fitHeight="173.0" fitWidth="181.0" layoutX="95.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/dog.png" />
                </image>
             </ImageView>
+            <VBox layoutX="34.0" layoutY="350.0" prefHeight="300.0" prefWidth="360.0" />
          </children>
       </Pane>
    </children>

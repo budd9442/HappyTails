@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 
 import java.io.IOException;
@@ -14,22 +15,23 @@ import java.util.ResourceBundle;
 public class MyPetsController implements Initializable {
 
 
-    public HBox petsList;
+    public GridPane petsList;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         try {
+
             for (int i = 0; i < 5; i++) {
-                FXMLLoader loader = new FXMLLoader(HappyTails.class.getResource("pet-item.fxml"));
+                FXMLLoader loader = new FXMLLoader(HappyTails.class.getResource("components/pet-item.fxml"));
                 Parent petItem = loader.load();
 
+                // Add petItem to the GridPane at the current column and row
+                petsList.add(petItem, 0, i);
 
-                // Replace the current child of the StackPane
-                //petsList.getChildren().clear();
-                petsList.getChildren().add(petItem);
+                // Update column and row indices
+
             }
-
 
         } catch (IOException e) {
             e.printStackTrace();
