@@ -22,5 +22,11 @@ public class PetItemController implements Initializable {
         roundedRectangle.setArcHeight(40); // Set vertical radius for rounded corners
 
         petImage.setClip(roundedRectangle);
+
+
+    }
+    void setData(String name,String type,String breed){
+nameLabel.setText(name);
+typeLabel.setText(type+" : "+breed);
     }
 }

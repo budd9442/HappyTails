@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="607.0" prefWidth="554.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.happytails.AddPet">
+   <children>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fill="#9936b7" layoutX="185.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add your pet details" wrappingWidth="147.73669815063477" />
+   </children>
+</AnchorPane>
