@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="705.0" prefWidth="1010.0" stylesheets="@fonts/Fonts.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.happytails.controllers.HomeViewController">
+<AnchorPane prefHeight="705.0" prefWidth="1010.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.happytails.controllers.HomeViewController">
    <children>
       <StackPane fx:id="mainStackPane" layoutY="6.0">
          <children>
@@ -137,12 +137,12 @@
       </StackPane>
       <Pane layoutX="576.0" layoutY="14.0" prefHeight="676.0" prefWidth="426.0" style="-fx-background-color: D4BEE4; -fx-background-radius: 15;">
          <children>
-            <Label layoutX="159.0" layoutY="28.0" text="Notifications" textFill="WHITE">
+            <Label layoutX="182.0" layoutY="328.0" text="Todo List" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="17.0" />
                </font>
             </Label>
-            <ScrollPane hbarPolicy="NEVER" layoutX="36.0" layoutY="353.0" prefHeight="254.0" prefWidth="360.0" vbarPolicy="NEVER">
+            <ScrollPane focusTraversable="false" hbarPolicy="NEVER" layoutX="29.0" layoutY="353.0" prefHeight="254.0" prefWidth="368.0" style="-fx-background: D4BEE4; -fx-border-color: D4BEE4;" styleClass="edge-to-edge" vbarPolicy="NEVER">
                <content>
                   <VBox fx:id="todoList" spacing="10" style="-fx-background-color: D4BEE4;" />
                </content>
@@ -165,6 +165,44 @@
                   </Label>
                </children>
             </Pane>
+            <Pane layoutX="41.0" layoutY="202.0" onMouseClicked="#onGrowthTrackerClick" prefHeight="55.0" prefWidth="356.0" style="-fx-background-color: #9B7EBD; -fx-background-radius: 15;">
+               <children>
+                  <Label layoutX="26.0" layoutY="17.0" prefHeight="21.0" prefWidth="299.0" text="Next Appointment : 5th Jan 2025  " textFill="WHITE">
+                     <font>
+                        <Font name="Calibri" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="41.0" layoutY="263.0" onMouseClicked="#onGrowthTrackerClick" prefHeight="55.0" prefWidth="356.0" style="-fx-background-color: #9B7EBD; -fx-background-radius: 15;">
+               <children>
+                  <Label layoutX="20.0" layoutY="17.0" prefHeight="21.0" prefWidth="313.0" text="Next Birthday :  Wal Balla - 6th Jan" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <ImageView fitHeight="156.0" fitWidth="356.0" layoutX="41.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/calendar.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="173.0" layoutY="65.0" prefHeight="39.0" prefWidth="60.0" text="5th" textFill="WHITE">
+               <font>
+                  <Font name="Calibri" size="33.0" />
+               </font>
+            </Label>
+            <Label layoutX="173.0" layoutY="100.0" prefHeight="26.0" prefWidth="157.0" text="November" textFill="WHITE">
+               <font>
+                  <Font name="Calibri" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="172.0" layoutY="127.0" prefHeight="39.0" prefWidth="87.0" text="2024" textFill="WHITE">
+               <font>
+                  <Font name="Calibri" size="33.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

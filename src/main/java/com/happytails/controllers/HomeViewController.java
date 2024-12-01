@@ -2,24 +2,32 @@ package com.happytails.controllers;
 
 import com.happytails.HappyTails;
 import io.github.palexdev.materialfx.controls.MFXCheckListView;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
+import javafx.util.Duration;
 
 import java.awt.event.MouseEvent;
 import java.io.IOException;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class HomeViewController {
     public HBox petsList;
     public StackPane selectedPetImage;
     public VBox todoList;
+    public Label clock;
 
     @FXML
     private StackPane mainStackPane; // Reference to the StackPane in menu-view.fxml
@@ -31,6 +39,8 @@ public class HomeViewController {
     @FXML
     public void initialize() throws IOException {
         if(selectedPetImage == null) return;
+
+
 //        selectedPetImage.setClip(new Circle(100, 100, 100));
 //        petsList.setSpacing(10); // Distance in pixels between images
 //        petsList.setPadding(new Insets(10, 0, 5, 0)); // Optional: padding around the HBox
@@ -78,22 +88,34 @@ public class HomeViewController {
 
         for (int i = 0; i < 10; i++) {
 
-            FXMLLoader loader = new FXMLLoader(HappyTails.class.getResource("components/todo-item.fxml"));
-            Parent todoItem = loader.load();
-            //PetItemController controller = loader.getController();
-            //controller.setData(pet.getPetName(),pet.getSpecies(),pet.getBreed(),pet.getDob());
 
 
-            // Add petItem to the GridPane at the current column and row
-            todoList.getChildren().add(todoItem);
+            todoList.getChildren().add(createTodo("Sample Todo Item","#FFCCEA",false));
 
         }
 
     }
 
+    public  Parent createTodo(String text, String color, boolean done) throws IOException {
+        FXMLLoader loader = new FXMLLoader(HappyTails.class.getResource("components/todo-item.fxml"));
+        Parent todoItem = loader.load();
+        //PetItemController controller = loader.getController();
+        //controller.setData(pet.getPetName(),pet.getSpecies(),pet.getBreed(),pet.getDob());
 
 
+        // Retrieve the controller for the FXML
+        TodoItemController controller = loader.getController();
+        controller.setData(text,color,done);
 
+        // Attach a delete event handler
+        Node deleteButtonNode = todoItem.lookup("#deleteBtn");
+        if (deleteButtonNode instanceof ImageView deleteButton) {
+            deleteButton.setOnMouseClicked(event -> {
+                todoList.getChildren().remove(todoItem);
+            });
+        }
+        return  todoItem;
+    }
     public void onGrowthTrackerClick(javafx.scene.input.MouseEvent mouseEvent) {
         try {
             // Load the growth-tracker.fxml

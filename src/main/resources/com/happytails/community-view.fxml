@@ -17,7 +17,7 @@
          </font>
       </Label>
       <VBox layoutX="733.0" layoutY="11.2" prefHeight="683.0" prefWidth="258.0" style="-fx-background-color: gray; -fx-background-radius: 10;" AnchorPane.bottomAnchor="11.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="11.0" />
-       <ScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" layoutX="10.0" layoutY="73.0" pannable="true" prefHeight="622.0" prefWidth="722.0" style="-fx-focus-color: transparent; -fx-faint-focus-color: transparent;" vbarPolicy="NEVER">
+       <ScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" layoutX="10.0" layoutY="73.0" pannable="true" prefHeight="622.0" prefWidth="722.0" style="-fx-focus-color: transparent; -fx-faint-focus-color: transparent;" styleClass="edge-to-edge" vbarPolicy="NEVER">
            <content>
                <GridPane fx:id="feedGrid" hgap="10.0" prefWidth="694.0" vgap="10.0">
                    <columnConstraints>

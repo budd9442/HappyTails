@@ -26,7 +26,7 @@ public class MenuViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        loadView("home-view.fxml");
     }
 
     public void homeClicked(MouseEvent mouseEvent) {
