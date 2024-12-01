@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
@@ -137,28 +138,28 @@
       </StackPane>
       <Pane layoutX="576.0" layoutY="14.0" prefHeight="676.0" prefWidth="426.0" style="-fx-background-color: D4BEE4; -fx-background-radius: 15;">
          <children>
-            <Label layoutX="182.0" layoutY="328.0" text="Todo List" textFill="WHITE">
+            <Label layoutX="184.0" layoutY="327.0" text="Todo List" textFill="WHITE">
                <font>
-                  <Font name="Calibri" size="17.0" />
+                  <Font name="Calibri Bold" size="20.0" />
                </font>
             </Label>
-            <ScrollPane focusTraversable="false" hbarPolicy="NEVER" layoutX="29.0" layoutY="353.0" prefHeight="254.0" prefWidth="368.0" style="-fx-background: D4BEE4; -fx-border-color: D4BEE4;" styleClass="edge-to-edge" vbarPolicy="NEVER">
+            <ScrollPane fx:id="todoListContainer" focusTraversable="false" hbarPolicy="NEVER" layoutX="29.0" layoutY="353.0" prefHeight="254.0" prefWidth="368.0" style="-fx-background: D4BEE4; -fx-border-color: D4BEE4;" styleClass="edge-to-edge" vbarPolicy="NEVER">
                <content>
                   <VBox fx:id="todoList" spacing="10" style="-fx-background-color: D4BEE4;" />
                </content>
             </ScrollPane>
-            <Pane layoutX="105.0" layoutY="622.0" prefHeight="40.0" prefWidth="98.0" style="-fx-background-color: #9B7EBD; -fx-background-radius: 20;">
+            <Pane layoutX="105.0" layoutY="622.0" onMouseClicked="#addTodoClicked" prefHeight="40.0" prefWidth="98.0" style="-fx-background-color: #A368A8; -fx-background-radius: 20;">
                <children>
-                  <Label layoutX="19.0" layoutY="10.0" text="Add item" textFill="#fcfcfc">
+                  <Label fx:id="addItemLabel" layoutX="19.0" layoutY="10.0" text="Add Item" textFill="#fcfcfc">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="240.0" layoutY="622.0" prefHeight="40.0" prefWidth="98.0" style="-fx-background-color: #9B7EBD; -fx-background-radius: 20;">
+            <Pane layoutX="240.0" layoutY="622.0" prefHeight="40.0" prefWidth="98.0" style="-fx-background-color: #A368A8; -fx-background-radius: 20;">
                <children>
-                  <Label layoutX="19.0" layoutY="10.0" text="Clear List" textFill="#fcfcfc">
+                  <Label fx:id="clearListLabel" layoutX="19.0" layoutY="10.0" onMouseClicked="#clearListClicked" text="Clear List" textFill="#fcfcfc">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -203,6 +204,21 @@
                   <Font name="Calibri" size="33.0" />
                </font>
             </Label>
+            <Pane fx:id="addTodoPanel" layoutX="43.0" layoutY="404.0" prefHeight="195.0" prefWidth="356.0" style="-fx-border-color: #9B7EBD; -fx-background-color: #9B7EBD; -fx-border-radius: 16; -fx-background-radius: 20;" visible="false">
+               <children>
+                  <MFXTextField fx:id="todoTextField" floatMode="DISABLED" floatingText="Todo Text" layoutX="18.0" layoutY="60.0" maxWidth="321.0" prefHeight="40.0" prefWidth="321.0" promptText="Go for a walk" style="-fx-border-color: D4BEE4; -mfx-text-limit: 50;">
+                     <font>
+                        <Font size="19.0" />
+                     </font></MFXTextField>
+                  <HBox fx:id="colorBox" alignment="CENTER" layoutX="18.0" layoutY="124.0" prefHeight="33.0" prefWidth="321.0" spacing="10.0" />
+                  <Label layoutX="106.0" layoutY="14.0" text="Add todo item" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri" size="23.0" />
+                     </font>
+                  </Label>
+                  <Text fx:id="addTodoErrorLabel" fill="WHITE" layoutX="18.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="321.0000000000002" />
+               </children>
+            </Pane>
          </children>
       </Pane>
    </children>
