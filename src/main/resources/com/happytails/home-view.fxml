@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="705.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.happytails.controllers.HomeViewController">
+<AnchorPane prefHeight="705.0" prefWidth="1010.0" stylesheets="@fonts/Fonts.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.happytails.controllers.HomeViewController">
    <children>
       <StackPane fx:id="mainStackPane" layoutY="6.0">
          <children>
@@ -61,14 +62,14 @@
                               </Label>
                            </children>
                         </Pane>
-                        <Pane layoutX="202.0" layoutY="14.0" prefHeight="181.0" prefWidth="177.0" style="-fx-background-color: #9B7EBD#A368A8; -fx-background-radius: 15;">
+                        <Pane layoutX="202.0" layoutY="14.0" onMouseClicked="#onVaccinationsClick" prefHeight="181.0" prefWidth="177.0" style="-fx-background-color: #9B7EBD#A368A8; -fx-background-radius: 15;">
                            <children>
-                              <ImageView fitHeight="100.0" fitWidth="98.0" layoutX="36.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="100.0" fitWidth="98.0" layoutX="36.0" layoutY="35.0" onMouseClicked="#onVaccinationsClick" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@img/icons8-vaccine-100.png" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="34.0" layoutY="147.0" text="Vaccinations" textFill="WHITE">
+                              <Label layoutX="34.0" layoutY="147.0" onMouseClicked="#onVaccinationsClick" text="Vaccinations" textFill="WHITE">
                                  <font>
                                     <Font name="Calibri" size="17.0" />
                                  </font>
@@ -107,18 +108,16 @@
                   </Pane>
                   <Pane layoutX="14.0" layoutY="8.0" prefHeight="295.0" prefWidth="550.0" style="-fx-background-color: #9B7EBD; -fx-background-radius: 15;">
                      <children>
-                        <Label layoutX="24.0" layoutY="26.0" text="WELCOME TO HAPPY TAILS" textFill="WHITE">
-                           <font>
-                              <Font name="Calibri" size="34.0" />
-                           </font>
-                        </Label>
-                        <Text layoutX="24.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pets are humanizing. " />
+                        <ImageView fitHeight="295.0" fitWidth="550.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/cover.png" />
+                           </image>
+                        </ImageView>
                         <Text fill="#000000a6" layoutX="173.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-                        <Text layoutX="24.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pets are humanizing. " />
                         <HBox fx:id="petsList" alignment="TOP_RIGHT" layoutX="-2.0" layoutY="210.0" prefHeight="69.0" prefWidth="397.0" />
                         <StackPane fx:id="selectedPetImage" layoutX="411.0" layoutY="157.0" maxHeight="130.0" maxWidth="130.0" minHeight="130.0" minWidth="130.0" prefHeight="130.0" prefWidth="130.0" style="-fx-background-radius: 50; -fx-border-radius: 30;">
                            <children>
-                              <ImageView fitHeight="130.0" fitWidth="130.0" pickOnBounds="true">
+                              <ImageView fitHeight="130.0" fitWidth="130.0" pickOnBounds="true" visible="false">
                                  <image>
                                     <Image url="@img/dogg.jpg" />
                                  </image>
@@ -138,17 +137,34 @@
       </StackPane>
       <Pane layoutX="576.0" layoutY="14.0" prefHeight="676.0" prefWidth="426.0" style="-fx-background-color: D4BEE4; -fx-background-radius: 15;">
          <children>
-            <Label layoutX="159.0" layoutY="28.0" text="Daily Activity" textFill="WHITE">
+            <Label layoutX="159.0" layoutY="28.0" text="Notifications" textFill="WHITE">
                <font>
                   <Font name="Calibri" size="17.0" />
                </font>
             </Label>
-            <ImageView fitHeight="173.0" fitWidth="181.0" layoutX="95.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@img/dog.png" />
-               </image>
-            </ImageView>
-            <VBox layoutX="34.0" layoutY="350.0" prefHeight="300.0" prefWidth="360.0" />
+            <ScrollPane hbarPolicy="NEVER" layoutX="36.0" layoutY="353.0" prefHeight="254.0" prefWidth="360.0" vbarPolicy="NEVER">
+               <content>
+                  <VBox fx:id="todoList" spacing="10" style="-fx-background-color: D4BEE4;" />
+               </content>
+            </ScrollPane>
+            <Pane layoutX="105.0" layoutY="622.0" prefHeight="40.0" prefWidth="98.0" style="-fx-background-color: #9B7EBD; -fx-background-radius: 20;">
+               <children>
+                  <Label layoutX="19.0" layoutY="10.0" text="Add item" textFill="#fcfcfc">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="240.0" layoutY="622.0" prefHeight="40.0" prefWidth="98.0" style="-fx-background-color: #9B7EBD; -fx-background-radius: 20;">
+               <children>
+                  <Label layoutX="19.0" layoutY="10.0" text="Clear List" textFill="#fcfcfc">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
          </children>
       </Pane>
    </children>

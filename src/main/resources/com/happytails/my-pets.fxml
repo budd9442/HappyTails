@@ -13,7 +13,7 @@
 
 <Pane prefHeight="670.0" prefWidth="580.0" style="-fx-background-color: white; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.happytails.controllers.MyPetsController">
     <children>
-        <MFXButton layoutX="415.0" layoutY="14.0" prefHeight="34.0" prefWidth="151.0" style="-fx-background-color: #A368A8;" text="Add pet" textFill="WHITE">
+        <MFXButton layoutX="415.0" layoutY="14.0" onMouseClicked="#addPetBtnClicked" prefHeight="34.0" prefWidth="151.0" style="-fx-background-color: #A368A8;" text="Add pet" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font></MFXButton>

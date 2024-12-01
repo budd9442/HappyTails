@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,6 +21,11 @@ public class MyPetsController implements Initializable {
 
 
     public GridPane petsList;
+    public StackPane parent;
+
+    public void setParent(StackPane sp){
+        parent = sp;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -37,7 +43,9 @@ public class MyPetsController implements Initializable {
                             resultSet.getString("Species"),
                             resultSet.getString("Breed"),
                             resultSet.getInt("Age"),
-                            resultSet.getString("Gender").charAt(0)
+                            resultSet.getString("Gender").charAt(0),
+                            resultSet.getString("DateOfBirth")
+
                     );
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -53,7 +61,7 @@ public class MyPetsController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(HappyTails.class.getResource("components/pet-item.fxml"));
                 Parent petItem = loader.load();
                 PetItemController controller = loader.getController();
-                controller.setData(pet.getPetName(),pet.getSpecies(),pet.getBreed());
+                controller.setData(pet.getPetName(),pet.getSpecies(),pet.getBreed(),pet.getDob());
 
 
                 // Add petItem to the GridPane at the current column and row
@@ -70,5 +78,28 @@ public class MyPetsController implements Initializable {
     }
 
     public void backBtnClicked(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(HappyTails.class.getResource("home-view.fxml"));
+            Parent view = loader.load();
+            parent.getChildren().setAll(view); // Replace current content
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
+    public void addPetBtnClicked(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(HappyTails.class.getResource("add-pet.fxml"));
+            Parent myPetsView = loader.load();
+            AddPetController controller = loader.getController();
+            controller.setParent(parent);
+            parent.getChildren().clear();
+            parent.getChildren().add(myPetsView);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }

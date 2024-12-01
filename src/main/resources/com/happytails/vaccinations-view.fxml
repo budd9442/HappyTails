@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane prefHeight="670.0" prefWidth="580.0" style="-fx-background-color: white; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.happytails.controllers.VaccinationsController">
+    <children>
+        <MFXButton layoutX="415.0" layoutY="14.0" onMouseClicked="#addRecordBtnClicked" prefHeight="34.0" prefWidth="151.0" style="-fx-background-color: #A368A8;" text="Add a record" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font></MFXButton>
+        <ImageView fitHeight="41.0" fitWidth="43.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#backBtnClicked" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@icons/light/icons8-back-100.png" />
+            </image>
+        </ImageView>
+      <Label fx:id="nameLabel" layoutX="51.0" layoutY="14.0" text="Vaccinations Tracker">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+    </children>
+</Pane>

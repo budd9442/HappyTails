@@ -7,15 +7,17 @@ public class Pet {
     private String breed;
     private int age;
     private char gender;
+    private String dob;
 
     // Constructor
-    public Pet(int petID, String petName, String species, String breed, int age, char gender) {
+    public Pet(int petID, String petName, String species, String breed, int age, char gender, String dob) {
         this.petID = petID;
         this.petName = petName;
         this.species = species;
         this.breed = breed;
         this.age = age;
         this.gender = gender;
+        this.dob = dob;
     }
 
     // Getters and Setters (Optional)
@@ -67,6 +69,9 @@ public class Pet {
         this.gender = gender;
     }
 
+    public void setDob(String dob){ this.dob = dob;}
+
+    public  String getDob(){return  this.dob;}
     @Override
     public String toString() {
         return "Pet{" +
@@ -76,6 +81,7 @@ public class Pet {
                 ", breed='" + breed + '\'' +
                 ", age=" + age +
                 ", gender=" + gender +
+                ", dob=" + dob +
                 '}';
     }
 }
