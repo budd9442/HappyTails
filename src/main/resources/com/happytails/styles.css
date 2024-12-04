@@ -1,1 +1,16 @@
 .root { -fx-focus-color: transparent; }
+
+.mfx-table-header {
+    -fx-background-color: #A368A8; /* Purple title row */
+    -fx-text-fill: white;          /* White text */
+}
+
+.mfx-table-column-filter {
+    -fx-background-color: transparent; /* Remove filter button background */
+    -fx-padding: 0;                    /* Remove extra padding */
+    -fx-graphic: null;                 /* Hide filter icon */
+}
+
+.mfx-table-column-sort {
+    -fx-background-color: transparent; /* Remove sort button background */
+}

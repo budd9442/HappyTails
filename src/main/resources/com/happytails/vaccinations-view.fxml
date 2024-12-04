@@ -1,27 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXComboBox?>
+<?import io.github.palexdev.materialfx.controls.MFXScrollPane?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <Pane prefHeight="670.0" prefWidth="580.0" style="-fx-background-color: white; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.happytails.controllers.VaccinationsController">
     <children>
+      <Pane layoutX="17.0" layoutY="77.0" prefHeight="175.0" prefWidth="548.0" style="-fx-background-color: #9B7EBD; -fx-background-radius: 20;">
+         <children>
+            <ImageView fx:id="selectedPetImage" fitHeight="186.0" fitWidth="200.0" layoutX="366.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/vaccine.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="48.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View vaccinations for ">
+               <font>
+                  <Font name="Calibri" size="25.0" />
+               </font>
+            </Text>
+            <MFXComboBox fx:id="petSelector" borderGap="0.0" floatMode="DISABLED" floatingTextGap="0.0" graphicTextGap="0.0" layoutX="59.0" layoutY="95.0" onAction="#onSelect" prefHeight="25.0" prefWidth="200.0" promptText="Select a Pet" rowsCount="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </MFXComboBox>
+         </children>
+      </Pane>
+        <!-- Add Record Button -->
         <MFXButton layoutX="415.0" layoutY="14.0" onMouseClicked="#addRecordBtnClicked" prefHeight="34.0" prefWidth="151.0" style="-fx-background-color: #A368A8;" text="Add a record" textFill="WHITE">
-         <font>
-            <Font size="13.0" />
-         </font></MFXButton>
+            <font>
+                <Font size="13.0" />
+            </font>
+        </MFXButton>
+
+        <!-- Back Button -->
         <ImageView fitHeight="41.0" fitWidth="43.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#backBtnClicked" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@icons/light/icons8-back-100.png" />
             </image>
         </ImageView>
-      <Label fx:id="nameLabel" layoutX="51.0" layoutY="14.0" text="Vaccinations Tracker">
-         <font>
-            <Font name="System Bold" size="23.0" />
-         </font>
-      </Label>
+
+        <!-- Title Label -->
+        <Label fx:id="nameLabel" layoutX="51.0" layoutY="14.0" text="Vaccinations">
+            <font>
+                <Font name="System Bold" size="23.0" />
+            </font>
+        </Label>
+        <MFXScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutX="53.0" layoutY="284.0" maxHeight="385.0" prefHeight="385.0" prefWidth="490.0" style="-fx-background: white;" styleClass="edge-to-edge" thumbColor="#9b7ebd" thumbHoverColor="#9b7ebd" trackColor="WHITE" vbarPolicy="AS_NEEDED">
+            <content>
+                <VBox fx:id="vaccinesList" prefWidth="475.0" spacing="20.0" />
+            </content>
+        </MFXScrollPane>
+      <ImageView fx:id="noVacsImg" fitHeight="269.0" fitWidth="481.0" layoutX="63.0" layoutY="315.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/no%20vacs.png" />
+         </image>
+      </ImageView>
+
     </children>
 </Pane>

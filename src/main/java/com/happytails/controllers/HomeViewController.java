@@ -1,33 +1,23 @@
 package com.happytails.controllers;
 
 import com.happytails.HappyTails;
-import io.github.palexdev.materialfx.controls.MFXCheckListView;
 import io.github.palexdev.materialfx.controls.MFXComboBox;
 import io.github.palexdev.materialfx.controls.MFXTextField;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
-import javafx.util.Duration;
 
 import java.io.IOException;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 
 public class HomeViewController {
     public HBox petsList;
@@ -35,7 +25,7 @@ public class HomeViewController {
     public VBox todoList;
     public Label clock;
     public Pane addTodoPanel;
-    public MFXComboBox colorPicker;
+
     public MFXTextField todoTextField;
     public String selectedColor;
     public HBox colorBox;
@@ -57,48 +47,6 @@ public class HomeViewController {
         if(selectedPetImage == null) return;
         addColorBoxes();
 
-
-//        selectedPetImage.setClip(new Circle(100, 100, 100));
-//        petsList.setSpacing(10); // Distance in pixels between images
-//        petsList.setPadding(new Insets(10, 0, 5, 0)); // Optional: padding around the HBox
-//
-////        todoList.getItems().add("Shower");
-////        todoList.getItems().add("Go for a walk");
-////        todoList.getItems().add("PLaytime");
-//
-//
-//        // URLs for your round images
-//        String[] imageUrls = {
-//                "/com/happytails/images/pet1.png",
-//                "/com/happytails/images/pet2.png",
-//                "/com/happytails/images/pet3.png",
-//                "/com/happytails/images/pet4.png"
-//        };
-//
-//        for (String url : imageUrls) {
-//
-//            // Create an ImageView for each image
-//            ImageView imageView = new ImageView(new Image(HappyTails.class.getResource("img/dogg.jpg").toString()));
-//            imageView.setFitWidth(70); // Match wrapper size
-//            imageView.setFitHeight(70);
-//            imageView.setPreserveRatio(false); // Allow stretching to fill completely
-//
-//            // Create a wrapper pane (e.g., StackPane) for circular background
-//            StackPane wrapper = new StackPane(imageView);
-//            wrapper.setPrefSize(70, 70); // Size of the circular background
-//            wrapper.setStyle(
-//                    "-fx-background-color: #D4BEE4; " + // Background color
-//                            "-fx-background-radius: 35; " +    // Half of prefSize for circular shape
-//                            "-fx-padding: 0;"                  // No padding, image fills completely
-//            );
-//
-//            // Clip the StackPane to a circle to ensure circular appearance
-//            Circle clip = new Circle(35, 35, 35); // Center x, y, and radius
-//            wrapper.setClip(clip);
-//
-//            // Add wrapper to the HBox
-//            petsList.getChildren().add(wrapper);
-//        }
 
 
         // load todo list
@@ -229,6 +177,7 @@ public class HomeViewController {
         if(clearListLabel.getText().equals("Clear List")){
             todoList.getChildren().clear();
         }else{
+            addTodoErrorLabel.setText("");
             addItemLabel.setText("Add Item");
             clearListLabel.setText("Clear List");
             todoListContainer.setVisible(true);
