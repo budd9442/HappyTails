@@ -6,7 +6,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="74.0" prefWidth="320.0" style="-fx-background-color: #9B7EBD; -fx-border-color: #592986; -fx-border-radius: 10; -fx-background-radius: 10; -fx-border-width: 0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.happytails.controllers.ClinicItemController">
    <children>
       <Text fill="WHITE" layoutX="14.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pet House - Animal Hospital">
@@ -24,7 +23,7 @@
             <Image url="@../icons/light/icons8-star-100.png" />
          </image>
       </ImageView>
-      <Text fill="WHITE" layoutX="41.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Piduruwella, Kurunegala">
+      <Text fill="WHITE" layoutX="41.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kurunegala, Sri Lanka">
          <font>
             <Font name="Calibri" size="15.0" />
          </font>

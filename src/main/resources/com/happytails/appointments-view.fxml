@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -23,57 +24,65 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="14.0" layoutY="225.0" prefHeight="468.0" prefWidth="278.0" style="-fx-background-color: #A368A8; -fx-background-radius: 20;">
+      <StackPane fx:id="mainStackPane" layoutX="14.0" layoutY="225.0">
          <children>
-            <MFXTextField floatMode="DISABLED" layoutX="20.0" layoutY="195.0" prefHeight="39.0" prefWidth="239.0" />
-            <MFXComboBox allowEdit="true" floatMode="DISABLED" layoutX="20.0" layoutY="272.0" prefHeight="39.0" prefWidth="239.0" />
-            <MFXComboBox allowEdit="true" floatMode="DISABLED" layoutX="20.0" layoutY="352.0" prefHeight="39.0" prefWidth="239.0" />
-            <MFXTextField floatMode="DISABLED" layoutX="20.0" layoutY="119.0" prefHeight="39.0" prefWidth="239.0" />
-            <Text fill="WHITE" layoutX="20.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Owner's Name">
-               <font>
-                  <Font name="Calibri Light" size="18.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" layoutX="20.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Owner's Phone number">
-               <font>
-                  <Font name="Calibri Light" size="18.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" layoutX="20.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pet's Name">
-               <font>
-                  <Font name="Calibri Light" size="18.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" layoutX="20.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointment reason">
-               <font>
-                  <Font name="Calibri Light" size="18.0" />
-               </font>
-            </Text>
-            <Button layoutX="65.0" layoutY="412.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="149.0" style="-fx-background-color: D4BEE4;" text="Continue">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Button>
-            <Text fill="WHITE" layoutX="51.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Appointment">
-               <font>
-                  <Font name="Calibri Light" size="24.0" />
-               </font>
-            </Text>
+            <Pane>
+               <children>
+                  <Pane prefHeight="468.0" prefWidth="278.0" style="-fx-background-color: #A368A8; -fx-background-radius: 20;">
+                     <children>
+                        <MFXTextField floatMode="DISABLED" layoutX="20.0" layoutY="195.0" prefHeight="39.0" prefWidth="239.0" />
+                        <MFXComboBox allowEdit="true" floatMode="DISABLED" layoutX="20.0" layoutY="272.0" prefHeight="39.0" prefWidth="239.0" />
+                        <MFXComboBox allowEdit="true" floatMode="DISABLED" layoutX="20.0" layoutY="352.0" prefHeight="39.0" prefWidth="239.0" />
+                        <MFXTextField floatMode="DISABLED" layoutX="20.0" layoutY="119.0" prefHeight="39.0" prefWidth="239.0" />
+                        <Text fill="WHITE" layoutX="20.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Owner's Name">
+                           <font>
+                              <Font name="Calibri Light" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="20.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Owner's Phone number">
+                           <font>
+                              <Font name="Calibri Light" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="20.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pet's Name">
+                           <font>
+                              <Font name="Calibri Light" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="20.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointment reason">
+                           <font>
+                              <Font name="Calibri Light" size="18.0" />
+                           </font>
+                        </Text>
+                        <Button layoutX="65.0" layoutY="412.0" mnemonicParsing="false" onMouseClicked="#onContinueClick" prefHeight="31.0" prefWidth="149.0" style="-fx-background-color: D4BEE4;" text="Continue">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <Text fill="WHITE" layoutX="51.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Appointment">
+                           <font>
+                              <Font name="Calibri Light" size="24.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="289.0" prefHeight="468.0" prefWidth="690.0" style="-fx-background-color: D4BEE4; -fx-background-radius: 20;">
+                     <children>
+                        <MFXScrollPane layoutX="37.0" layoutY="86.0" prefHeight="321.0" prefWidth="617.0" style="-fx-background: D4BEE4;" styleClass="edge-to-edge" thumbColor="#9b7ebd" thumbHoverColor="#9b7ebd" trackColor="WHITE" vbarPolicy="NEVER">
+                           <content>
+                              <HBox fx:id="appointmentsList" maxHeight="344.0" prefHeight="310.0" prefWidth="615.0" spacing="10.0" style="-fx-background-color: D4BEE4;" />
+                           </content>
+                        </MFXScrollPane>
+                        <Text fill="WHITE" layoutX="32.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Appointments">
+                           <font>
+                              <Font name="Calibri" size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
          </children>
-      </Pane>
-      <Pane layoutX="303.0" layoutY="225.0" prefHeight="468.0" prefWidth="690.0" style="-fx-background-color: D4BEE4; -fx-background-radius: 20;">
-         <children>
-            <MFXScrollPane layoutX="45.0" layoutY="84.0" prefHeight="321.0" prefWidth="600.0" style="-fx-background: D4BEE4;" styleClass="edge-to-edge" vbarPolicy="NEVER">
-               <content>
-                  <HBox fx:id="appointmentsList" maxHeight="344.0" prefHeight="310.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: D4BEE4;" />
-               </content>
-            </MFXScrollPane>
-            <Text fill="WHITE" layoutX="32.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Appointments">
-               <font>
-                  <Font name="Calibri" size="20.0" />
-               </font>
-            </Text>
-         </children>
-      </Pane>
+      </StackPane>
    </children>
 </AnchorPane>

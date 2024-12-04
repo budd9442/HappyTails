@@ -4,8 +4,10 @@ import com.happytails.HappyTails;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -16,6 +18,7 @@ public class AppointmentsController implements Initializable {
 
 
     public HBox appointmentsList;
+    public StackPane mainStackPane;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -33,5 +36,14 @@ public class AppointmentsController implements Initializable {
             //timeSlots.getChildren().add(loader2.load());
         }
 
+    }
+
+    public void onContinueClick(MouseEvent mouseEvent) {
+        FXMLLoader loader = new FXMLLoader(HappyTails.class.getResource("new-appointment.fxml"));
+        try {
+            mainStackPane.getChildren().add(loader.load());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
