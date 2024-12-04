@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXProgressBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="56.0" prefWidth="290.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.happytails.controllers.TimeSlotItemController">
+   <children>
+      <Pane prefHeight="52.0" prefWidth="291.0">
+         <children>
+            <MFXProgressBar layoutX="7.0" layoutY="23.0" prefHeight="8.0" prefWidth="214.0" progress="0.58" />
+            <Text layoutX="8.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tomorrow" />
+            <Text layoutX="123.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3/10 Slots Booked" />
+            <Text layoutX="7.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available after 10 am" />
+            <MFXButton buttonType="RAISED" layoutX="230.0" layoutY="10.0" prefHeight="35.0" prefWidth="55.0" text="Book" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

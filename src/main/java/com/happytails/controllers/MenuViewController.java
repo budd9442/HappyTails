@@ -23,6 +23,7 @@ public class MenuViewController implements Initializable {
     public Pane profileBtn;
     public Pane settingsBtn;
     public StackPane stackPane;
+    public Pane appointmentsBtn;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -57,6 +58,7 @@ public class MenuViewController implements Initializable {
         homeBtn.setStyle("-fx-background-color: transparent;");
         profileBtn.setStyle("-fx-background-color: transparent;");
         settingsBtn.setStyle("-fx-background-color: transparent;");
+        appointmentsBtn.setStyle("-fx-background-color: transparent;");
         //petsBtn.setStyle("-fx-background-color: transparent;");
     }
 
@@ -87,5 +89,11 @@ public class MenuViewController implements Initializable {
         stage.setScene( new Scene(fxmlLoader.load(), 900, 450));
         stage.show();
         ((Stage) ((Node) mouseEvent.getSource()).getScene().getWindow()).close();
+    }
+
+    public void appointmentsClicked(MouseEvent mouseEvent) {
+        clearHighlightedBtn();
+        appointmentsBtn.setStyle("-fx-background-color: #FFC100; -fx-background-radius: 0 30 30 0;");
+        loadView("appointments-view.fxml");
     }
 }
