@@ -1,6 +1,8 @@
 package com.happytails.controllers;
 
 import com.happytails.HappyTails;
+import com.happytails.models.TodoItem;
+import com.happytails.utils.DBConnector;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +19,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.UUID;
 
 public class HomeViewController {
     public HBox petsList;
@@ -32,6 +37,7 @@ public class HomeViewController {
     public Label clearListLabel;
     public Label addItemLabel;
     public Text addTodoErrorLabel;
+    public Label todoListEmpty;
 
     @FXML
     private StackPane mainStackPane; // Reference to the StackPane in menu-view.fxml
@@ -43,41 +49,99 @@ public class HomeViewController {
     @FXML
     public void initialize() throws IOException {
         addTodoPanel.setVisible(false);
-        if(selectedPetImage == null) return;
+        if (selectedPetImage == null) return;
         addColorBoxes();
 
+        // Load todo list from the database
+        loadTodoListFromDatabase();
+    }
 
+    private void loadTodoListFromDatabase() throws IOException {
+        // Query to retrieve the todos for the current user
+        String query = "SELECT text, color, done FROM todo WHERE user_id = ? ORDER BY created_at DESC";
 
-        // load todo list
+        // Get the current user's UUID
+        String currentUserId = DBConnector.currentUserID;
 
-        for (int i = 0; i < 3; i++) {
+        // Use the DBConnector.query method to get the list of todos
+        List<TodoItem> todoItems = DBConnector.query(query, new String[]{currentUserId}, resultSet -> {
+            try {
+                String text = resultSet.getString("text");
+                String color = resultSet.getString("color");
+                boolean done = resultSet.getBoolean("done");
+                return new TodoItem(text, color, done);  // Return a TodoItem object
+            } catch (SQLException e) {
+                e.printStackTrace();
+                return null;
+            }
+        });
 
-            todoList.getChildren().add(createTodo("Sample Todo Item","#FFCCEA",false));
-
+        // Add each todo item to the todoList
+        for (TodoItem todoItem : todoItems) {
+            if (todoItem != null) {
+                todoList.getChildren().add(createTodo(todoItem,false));
+            }
         }
+
+        todoListEmpty.setVisible(todoList.getChildren().isEmpty());
 
     }
 
-    public  Parent createTodo(String text, String color, boolean done) throws IOException {
+
+
+
+    public Parent createTodo(TodoItem item, boolean saveToDb) throws IOException {
+
+        System.out.println("Creating todo");
         FXMLLoader loader = new FXMLLoader(HappyTails.class.getResource("components/todo-item.fxml"));
         Parent todoItem = loader.load();
-        //PetItemController controller = loader.getController();
-        //controller.setData(pet.getPetName(),pet.getSpecies(),pet.getBreed(),pet.getDob());
 
-
-        // Retrieve the controller for the FXML
         TodoItemController controller = loader.getController();
-        controller.setData(text,color,done);
+        controller.setData(item.getText(), item.getColor(), item.isDone());
+        if(saveToDb)storeTodoInDatabase(item.getText(), item.getColor(), item.isDone());
 
         // Attach a delete event handler
         Node deleteButtonNode = todoItem.lookup("#deleteBtn");
         if (deleteButtonNode instanceof ImageView deleteButton) {
             deleteButton.setOnMouseClicked(event -> {
                 todoList.getChildren().remove(todoItem);
+                // Optionally remove from the database when deleting
+                deleteTodoFromDatabase(item.getText(), item.getColor(), item.isDone());
+                todoListEmpty.setVisible(todoList.getChildren().isEmpty());
             });
         }
-        return  todoItem;
+
+        return todoItem;
     }
+
+    private void storeTodoInDatabase(String text, String color, boolean done) {
+        String insertTodoQuery = """
+    INSERT INTO todo (user_id, text, color) 
+    VALUES (?, ?, ?)
+    """;
+
+        // Get the current user's UUID
+        String currentUserId = DBConnector.currentUserID;
+
+        // Execute the query to insert the todo
+        DBConnector.executeUpdate(insertTodoQuery, new String[]{currentUserId, text, color});
+    }
+
+    private void deleteTodoFromDatabase(String text, String color, boolean done) {
+        String deleteTodoQuery = """
+    DELETE FROM todo 
+    WHERE user_id = ? AND text = ?
+    """;
+
+        String currentUserId = DBConnector.currentUserID;
+
+        System.out.println( DBConnector.executeUpdate(deleteTodoQuery, new String[]{currentUserId, text}));
+
+    }
+
+
+
+
     public void onGrowthTrackerClick(javafx.scene.input.MouseEvent mouseEvent) {
         try {
             // Load the growth-tracker.fxml
@@ -175,6 +239,7 @@ public class HomeViewController {
     public void clearListClicked(MouseEvent mouseEvent) {
         if(clearListLabel.getText().equals("Clear List")){
             todoList.getChildren().clear();
+            DBConnector.executeUpdate("DELETE from todo where user_id = ? ",new String[]{DBConnector.currentUserID});
         }else{
             addTodoErrorLabel.setText("");
             addItemLabel.setText("Add Item");
@@ -182,14 +247,29 @@ public class HomeViewController {
             todoListContainer.setVisible(true);
             addTodoPanel.setVisible(false);
         }
+        todoListEmpty.setVisible(todoList.getChildren().isEmpty());
+
     }
 
     public void addTodoClicked(MouseEvent mouseEvent) throws IOException {
+        todoListEmpty.setVisible(false);
+        String query = "SELECT COUNT(*) FROM todo WHERE user_id = ? AND text = ?";
+        String currentUserId = DBConnector.currentUserID;
+
+        List<Integer> results = DBConnector.query(query, new String[]{currentUserId, todoTextField.getText()}, resultSet -> {
+            try {
+                return resultSet.getInt(1); // Return the count of matching todos
+            } catch (SQLException e) {
+                return 0;
+            }
+        });
+
         if(addItemLabel.getText().equals("Add Item")){
             addItemLabel.setText("Confirm");
             clearListLabel.setText("Cancel");
             todoListContainer.setVisible(false);
             addTodoPanel.setVisible(true);
+
         }else{
             if(selectedColor== null ){
                 addTodoErrorLabel.setText("Please select a color");
@@ -199,8 +279,12 @@ public class HomeViewController {
                 addTodoErrorLabel.setText("Please enter todo text");
                 return;
             }
+            if(results.get(0) > 0){
+                addTodoErrorLabel.setText("Todo already exists");
+                return;
+            }
             addTodoErrorLabel.setText("");
-            todoList.getChildren().addFirst(createTodo(todoTextField.getText(),selectedColor,false));
+            todoList.getChildren().addFirst(createTodo(new TodoItem(todoTextField.getText(),selectedColor,false),true));
             todoTextField.clear();
             todoListContainer.setVisible(true);
             addTodoPanel.setVisible(false);
@@ -209,7 +293,7 @@ public class HomeViewController {
 
         }
 
-        
+
     }
 
     public void onMedicalHistoryClick(MouseEvent mouseEvent) {

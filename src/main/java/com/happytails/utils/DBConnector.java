@@ -1,7 +1,9 @@
 package com.happytails.utils;
 
+import java.io.Console;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
 
@@ -10,6 +12,7 @@ public class DBConnector {
     private static final String DATABASE_USERNAME = "root";
     private static final String DATABASE_PASSWORD = "root";
     public static String currentUserID = null;
+    public static boolean debugMode = false;
 
 
     public static <T> List<T> query(String query, String[] args, Function<ResultSet, T> mapper) {
@@ -35,6 +38,7 @@ public class DBConnector {
     }
 
     public static int executeUpdate(String query, String[] args) {
+        if(debugMode) System.out.println("Executing update quary : "+ query + Arrays.toString(args));
         int rowsAffected = 0;
 
         try (Connection connection = DriverManager.getConnection(DATABASE_URL, DATABASE_USERNAME, DATABASE_PASSWORD);
@@ -47,7 +51,7 @@ public class DBConnector {
             rowsAffected = preparedStatement.executeUpdate(); // Executes update and returns affected row count
 
         } catch (SQLException e) {
-            return -1;
+            System.out.println(e.getMessage());
         }
 
         return rowsAffected;
@@ -55,10 +59,10 @@ public class DBConnector {
 
 
     public static String login(String username, String password) {
-        String query = "SELECT id FROM user WHERE email=? AND password=?";
+        String query = "SELECT user_id FROM user WHERE email=? AND password=?";
         List<String> results = DBConnector.query(query, new String[]{username, password}, resultSet -> {
             try {
-                return resultSet.getString("id");
+                return resultSet.getString("user_id");
             } catch (SQLException e) {
                 return null;
             }

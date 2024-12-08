@@ -219,6 +219,11 @@
                   <Text fx:id="addTodoErrorLabel" fill="WHITE" layoutX="18.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="321.0000000000002" />
                </children>
             </Pane>
+            <Label fx:id="todoListEmpty" layoutX="157.0" layoutY="494.0" text="Todo List is empty" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="Calibri Light Italic" size="20.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

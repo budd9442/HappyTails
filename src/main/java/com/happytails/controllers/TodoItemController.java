@@ -1,5 +1,6 @@
 package com.happytails.controllers;
 
+import com.happytails.utils.DBConnector;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -23,6 +24,12 @@ public class TodoItemController {
 
     public void onClick(MouseEvent mouseEvent) {
         tickIcon.setVisible(!tickIcon.isVisible());
+
+        String updateQuery = "UPDATE todo SET done = ?  WHERE user_id = ? AND text = ?";
+        String doneStatus = tickIcon.isVisible() ? "1" : "0";
+
+        // Execute the update query
+        DBConnector.executeUpdate(updateQuery, new String[]{doneStatus, DBConnector.currentUserID, textLabel.getText()});
 
     }
 }

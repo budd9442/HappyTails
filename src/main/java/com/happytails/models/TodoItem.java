@@ -1,43 +1,25 @@
 package com.happytails.models;
 
-import javafx.beans.property.*;
-
 public class TodoItem {
-    private final StringProperty itemName = new SimpleStringProperty();
-    private final StringProperty description = new SimpleStringProperty();
-    private final BooleanProperty completed = new SimpleBooleanProperty();
-    private final StringProperty categoryIcon = new SimpleStringProperty();
+    private String text;
+    private String color;
+    private boolean done;
 
-    public TodoItem(String name, String catIcon) {
-        this.itemName.set(name);
-        this.categoryIcon.set(catIcon);
+    public TodoItem(String text, String color, boolean done) {
+        this.text = text;
+        this.color = color;
+        this.done = done;
     }
 
-    public String getItemName() {
-        return itemName.get();
+    public String getText() {
+        return text;
     }
 
-    public StringProperty itemNameProperty() {
-        return itemName;
+    public String getColor() {
+        return color;
     }
 
-    public boolean isCompleted() {
-        return completed.get();
-    }
-
-    public BooleanProperty completedProperty() {
-        return completed;
-    }
-
-    public void setCompleted(boolean completed) {
-        this.completed.set(completed);
-    }
-
-    public String getCategoryIcon() {
-        return categoryIcon.get();
-    }
-
-    public StringProperty categoryIconProperty() {
-        return categoryIcon;
+    public boolean isDone() {
+        return done;
     }
 }

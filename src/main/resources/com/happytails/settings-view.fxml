@@ -3,6 +3,7 @@
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import io.github.palexdev.materialfx.controls.MFXToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,20 +13,20 @@
 
 <AnchorPane prefHeight="705.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.happytails.controllers.SettingsViewController">
    <children>
-      <Pane layoutX="33.0" layoutY="402.0" prefHeight="275.0" prefWidth="582.0" style="-fx-background-color: D4BEE4; -fx-background-radius: 15;">
+      <Pane layoutX="624.0" layoutY="87.0" prefHeight="411.0" prefWidth="378.0" style="-fx-background-color: D4BEE4; -fx-background-radius: 15;" AnchorPane.rightAnchor="10.0">
          <children>
             <Text layoutX="21.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change Password" wrappingWidth="165.697265625">
                <font>
                   <Font name="Calibri" size="20.0" />
                </font>
             </Text>
-            <MFXPasswordField floatMode="DISABLED" layoutX="65.0" layoutY="64.0" prefHeight="49.0" prefWidth="277.0" promptText="Current Password" />
-            <MFXPasswordField floatMode="DISABLED" layoutX="65.0" layoutY="130.0" prefHeight="49.0" prefWidth="277.0" promptText="New Password" />
-            <MFXPasswordField floatMode="DISABLED" layoutX="65.0" layoutY="194.0" prefHeight="49.0" prefWidth="277.0" promptText="Retype New Password" />
-            <MFXButton layoutX="390.0" layoutY="194.0" prefHeight="49.0" prefWidth="154.0" text="Update Password" />
+            <MFXPasswordField floatMode="DISABLED" layoutX="44.0" layoutY="103.0" prefHeight="49.0" prefWidth="298.0" promptText="Current Password" />
+            <MFXPasswordField floatMode="DISABLED" layoutX="44.0" layoutY="169.0" prefHeight="49.0" prefWidth="298.0" promptText="New Password" />
+            <MFXPasswordField floatMode="DISABLED" layoutX="44.0" layoutY="232.0" prefHeight="49.0" prefWidth="298.0" promptText="Retype New Password" />
+            <MFXButton layoutX="116.0" layoutY="319.0" prefHeight="49.0" prefWidth="154.0" text="Update Password" />
          </children>
       </Pane>
-      <Pane layoutX="33.0" layoutY="103.0" prefHeight="275.0" prefWidth="582.0" style="-fx-background-color: D4BEE4; -fx-background-radius: 15;">
+      <Pane layoutX="14.0" layoutY="88.0" prefHeight="290.0" prefWidth="596.0" style="-fx-background-color: D4BEE4; -fx-background-radius: 15;">
          <children>
             <Text layoutX="21.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile Settings" wrappingWidth="165.697265625">
                <font>
@@ -59,7 +60,7 @@
             <MFXButton layoutX="365.0" layoutY="25.0" prefHeight="49.0" prefWidth="154.0" text="Save Changes" />
          </children>
       </Pane>
-      <Pane layoutX="14.0" layoutY="14.0" prefHeight="66.0" prefWidth="980.0" style="-fx-background-color: #9B7EBD; -fx-background-radius: 20;">
+      <Pane layoutX="14.0" layoutY="14.0" prefHeight="66.0" prefWidth="980.0" style="-fx-background-color: #9B7EBD; -fx-background-radius: 20;" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <children>
             <Text fill="WHITE" layoutX="37.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Settings">
                <font>
@@ -68,10 +69,36 @@
             </Text>
          </children>
       </Pane>
-      <ImageView fitHeight="574.0" fitWidth="370.0" layoutX="640.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/credits.png" />
-         </image>
-      </ImageView>
+      <Pane layoutX="14.0" layoutY="387.0" prefHeight="308.0" prefWidth="596.0" style="-fx-background-color: D4BEE4; -fx-background-radius: 15;">
+         <children>
+            <ImageView fitHeight="308.0" fitWidth="596.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/SettingsBanner.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="622.0" layoutY="509.0" prefHeight="186.0" prefWidth="378.0" style="-fx-background-color: D4BEE4; -fx-background-radius: 15;">
+         <children>
+            <Text layoutX="23.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developer Settings" wrappingWidth="165.697265625">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Text>
+            <Text layoutX="23.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Debug Mode" wrappingWidth="126.89102172851562">
+               <font>
+                  <Font name="Calibri Light" size="16.0" />
+               </font>
+            </Text>
+            <MFXToggleButton fx:id="debugToggle" layoutX="139.0" layoutY="54.0" onMouseClicked="#onDebugToggle" textExpand="true" />
+            <Text layoutX="23.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Test database connection" wrappingWidth="191.69107055664062">
+               <font>
+                  <Font name="Calibri Light" size="16.0" />
+               </font>
+            </Text>
+            <MFXTextField floatMode="DISABLED" layoutX="20.0" layoutY="128.0" prefHeight="35.0" prefWidth="238.0" />
+            <MFXButton layoutX="275.0" layoutY="124.0" prefHeight="42.0" prefWidth="89.0" text="TEST" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
