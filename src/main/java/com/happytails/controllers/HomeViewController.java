@@ -1,7 +1,6 @@
 package com.happytails.controllers;
 
 import com.happytails.HappyTails;
-import io.github.palexdev.materialfx.controls.MFXComboBox;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -211,5 +210,19 @@ public class HomeViewController {
         }
 
         
+    }
+
+    public void onMedicalHistoryClick(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(HappyTails.class.getResource("medical-history-view.fxml"));
+            Parent myPetsView = loader.load();
+            MedicalHistoryController controller = loader.getController();
+            controller.setParent(mainStackPane);
+            mainStackPane.getChildren().clear();
+            mainStackPane.getChildren().add(myPetsView);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

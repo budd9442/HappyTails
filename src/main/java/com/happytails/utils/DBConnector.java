@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.function.Function;
 
 public class DBConnector {
-    private static final String DATABASE_URL = "jdbc:mysql://127.0.0.1:3306/happytails";
+    private static final String DATABASE_URL = "jdbc:mysql://127.0.0.1:3306/happytails?allowPublicKeyRetrieval=true&useSSL=false";
     private static final String DATABASE_USERNAME = "root";
-    private static final String DATABASE_PASSWORD = "";
+    private static final String DATABASE_PASSWORD = "root";
     public static String currentUserID = null;
 
 
@@ -87,4 +87,5 @@ public class DBConnector {
             }
         }
     }
+
 }
