@@ -1,5 +1,7 @@
 package com.happytails.utils;
 
+import com.happytails.models.Pet;
+
 import java.io.Console;
 import java.sql.*;
 import java.util.ArrayList;
@@ -12,6 +14,7 @@ public class DBConnector {
     private static final String DATABASE_USERNAME = "root";
     private static final String DATABASE_PASSWORD = "root";
     public static String currentUserID = null;
+    public static Pet selectedPet = null;
     public static boolean debugMode = false;
 
 

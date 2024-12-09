@@ -42,8 +42,7 @@ public class MyPetsController implements Initializable {
                             resultSet.getString("PetName"),
                             resultSet.getString("Species"),
                             resultSet.getString("Breed"),
-                            resultSet.getInt("Age"),
-                            resultSet.getString("Gender").charAt(0),
+                            resultSet.getString("Gender"),
                             resultSet.getString("DateOfBirth")
 
                     );

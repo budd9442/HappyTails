@@ -25,11 +25,6 @@
                   <Font name="Calibri" size="25.0" />
                </font>
             </Text>
-            <MFXComboBox fx:id="petSelector" borderGap="0.0" floatMode="DISABLED" floatingTextGap="0.0" graphicTextGap="0.0" layoutX="59.0" layoutY="95.0" onAction="#onSelect" prefHeight="25.0" prefWidth="200.0" promptText="Select a Pet" rowsCount="1">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </MFXComboBox>
          </children>
       </Pane>
         <!-- Add Record Button -->
@@ -62,6 +57,11 @@
             <Image url="@img/no%20vacs.png" />
          </image>
       </ImageView>
+      <MFXComboBox fx:id="petSelector" borderGap="0.0" floatMode="DISABLED" floatingTextGap="0.0" graphicTextGap="0.0" layoutX="72.0" layoutY="158.0" onAction="#onSelect" prefHeight="34.0" prefWidth="200.0" promptText="Select a Pet">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </MFXComboBox>
 
     </children>
 </Pane>

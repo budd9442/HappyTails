@@ -1,26 +1,28 @@
 package com.happytails.models;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+
 public class Pet {
     private int petID;
     private String petName;
     private String species;
     private String breed;
     private int age;
-    private char gender;
+    private String gender;
     private String dob;
 
     // Constructor
-    public Pet(int petID, String petName, String species, String breed, int age, char gender, String dob) {
+    public Pet(int petID, String petName, String species, String breed, String gender, String dob) {
         this.petID = petID;
         this.petName = petName;
         this.species = species;
         this.breed = breed;
-        this.age = age;
         this.gender = gender;
         this.dob = dob;
     }
 
-    // Getters and Setters (Optional)
     public int getPetID() {
         return petID;
     }
@@ -54,18 +56,24 @@ public class Pet {
     }
 
     public int getAge() {
-        return age;
+        if (dob == null || dob.isEmpty()) {
+            return 0; // Return 0 if dob is not set
+        }
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate birthDate = LocalDate.parse(dob, formatter);
+        LocalDate currentDate = LocalDate.now();
+        return Period.between(birthDate, currentDate).getYears();
     }
 
     public void setAge(int age) {
         this.age = age;
     }
 
-    public char getGender() {
+    public String  getGender() {
         return gender;
     }
 
-    public void setGender(char gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 

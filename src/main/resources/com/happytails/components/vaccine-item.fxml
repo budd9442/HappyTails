@@ -20,7 +20,7 @@
                </image>
             </ImageView>
             <Accordion layoutX="81.0" layoutY="-7.0" />
-            <Text layoutX="91.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Canine Distemper">
+            <Text fx:id="titleText" layoutX="91.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Canine Distemper">
                <font>
                   <Font name="Calibri" size="22.0" />
                </font>
@@ -28,9 +28,9 @@
             <Text fx:id="statusText" layoutX="321.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Not Completed" textAlignment="RIGHT" wrappingWidth="97.00274658203125" />
             <Text fx:id="infoText1" layoutX="40.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Protects against a contagious viral disease that attacks the respiratory, gastrointestinal, and nervous systems." wrappingWidth="389.03790283203125" />
             <Text fx:id="infoText2" layoutX="40.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First dose at 6-8 weeks, followed by boosters every 3-4 weeks until 16 weeks." wrappingWidth="368.5745849609375" />
-            <MFXButton fx:id="cpmpleteBtn" layoutX="40.0" layoutY="167.0" onMouseClicked="#markComplete" prefHeight="26.0" prefWidth="117.0" text="Mark as complete" />
-            <MFXButton fx:id="incompleteBtn" layoutX="165.0" layoutY="167.0" onMouseClicked="#markIncomplete" prefHeight="26.0" prefWidth="139.0" text="Mark as incomplete" />
-            <MFXButton fx:id="missedBtn" layoutX="311.0" layoutY="167.0" onMouseClicked="#markMissed" prefHeight="26.0" prefWidth="117.0" text="Mark as missed" />
+            <MFXButton fx:id="completeBtn" layoutX="22.0" layoutY="167.0" onMouseClicked="#markComplete" prefHeight="26.0" prefWidth="139.0" text="Mark as vaccinated" />
+            <MFXButton fx:id="incompleteBtn" layoutX="168.0" layoutY="167.0" onMouseClicked="#markIncomplete" prefHeight="26.0" prefWidth="153.0" text="Mark as not vaccinated" />
+            <MFXButton fx:id="missedBtn" layoutX="329.0" layoutY="167.0" onMouseClicked="#markMissed" prefHeight="26.0" prefWidth="117.0" text="Mark as missed" />
          </children>
       </Pane>
    </children>
