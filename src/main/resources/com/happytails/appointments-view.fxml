@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXComboBox?>
+<?import io.github.palexdev.materialfx.controls.MFXFilterComboBox?>
 <?import io.github.palexdev.materialfx.controls.MFXScrollPane?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.scene.control.Button?>
@@ -30,10 +31,10 @@
                <children>
                   <Pane prefHeight="468.0" prefWidth="278.0" style="-fx-background-color: #A368A8; -fx-background-radius: 20;">
                      <children>
-                        <MFXTextField floatMode="DISABLED" layoutX="20.0" layoutY="195.0" prefHeight="39.0" prefWidth="239.0" />
-                        <MFXComboBox allowEdit="true" floatMode="DISABLED" layoutX="20.0" layoutY="272.0" prefHeight="39.0" prefWidth="239.0" />
-                        <MFXComboBox allowEdit="true" floatMode="DISABLED" layoutX="20.0" layoutY="352.0" prefHeight="39.0" prefWidth="239.0" />
-                        <MFXTextField floatMode="DISABLED" layoutX="20.0" layoutY="119.0" prefHeight="39.0" prefWidth="239.0" />
+                        <MFXTextField fx:id="phoneField" floatMode="DISABLED" layoutX="20.0" layoutY="195.0" prefHeight="39.0" prefWidth="239.0" />
+                        <MFXComboBox fx:id="petList" allowEdit="true" floatMode="DISABLED" layoutX="20.0" layoutY="272.0" prefHeight="39.0" prefWidth="239.0" />
+                        <MFXFilterComboBox fx:id="reasonsList" allowEdit="true" floatMode="DISABLED" layoutX="20.0" layoutY="352.0" prefHeight="39.0" prefWidth="239.0" rowsCount="5" />
+                        <MFXTextField fx:id="nameField" floatMode="DISABLED" layoutX="20.0" layoutY="119.0" prefHeight="39.0" prefWidth="239.0" />
                         <Text fill="WHITE" layoutX="20.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Owner's Name">
                            <font>
                               <Font name="Calibri Light" size="18.0" />

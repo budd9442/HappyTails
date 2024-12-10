@@ -43,7 +43,9 @@ public class MyPetsController implements Initializable {
                             resultSet.getString("Species"),
                             resultSet.getString("Breed"),
                             resultSet.getString("Gender"),
-                            resultSet.getString("DateOfBirth")
+                            resultSet.getString("DateOfBirth"),
+                            resultSet.getString("picURL")
+
 
                     );
                 } catch (SQLException e) {
@@ -60,7 +62,7 @@ public class MyPetsController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(HappyTails.class.getResource("components/pet-item.fxml"));
                 Parent petItem = loader.load();
                 PetItemController controller = loader.getController();
-                controller.setData(pet.getPetName(),pet.getSpecies(),pet.getBreed(),pet.getDob());
+                controller.setData(pet);
 
 
                 // Add petItem to the GridPane at the current column and row

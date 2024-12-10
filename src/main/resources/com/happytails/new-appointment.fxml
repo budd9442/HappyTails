@@ -35,23 +35,22 @@
             </Pane>
             <Pane layoutX="346.0" layoutY="15.0" prefHeight="439.0" prefWidth="619.0" style="-fx-background-color: white; -fx-background-radius: 20;">
                <children>
-                  <ImageView fx:id="noSelectionImg" fitHeight="235.0" fitWidth="310.0" layoutX="5.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                  <ImageView fx:id="noSelectionImg" fitHeight="235.0" fitWidth="310.0" layoutX="19.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/select.png" />
                      </image>
                   </ImageView>
-                  <ScrollPane hbarPolicy="NEVER" layoutX="24.0" layoutY="153.0" maxHeight="241.0" prefHeight="241.0" prefWidth="310.0" style="-fx-background: white;" styleClass="edge-to-edge" vbarPolicy="NEVER">
-                     <content>
-                        <GridPane fx:id="timeSlots" hgap="10.0" maxHeight="427.0" prefHeight="242.0" prefWidth="310.0" vgap="10.0" />
-                     </content>
-                  </ScrollPane>
-                  <MFXDatePicker layoutX="24.0" layoutY="57.0" />
-                  <Text layoutX="24.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Date">
-                     <font>
-                        <Font name="Calibri Light" size="18.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="24.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available time slots">
+                  <Pane fx:id="selectDatePane" layoutX="14.0" layoutY="99.0" prefHeight="72.0" prefWidth="320.0">
+                     <children>
+                        <MFXDatePicker fx:id="dateField" disable="true" editable="false" layoutX="9.0" layoutY="28.5" onAction="#onSelectDate" />
+                        <Text layoutX="14.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Date">
+                           <font>
+                              <Font name="Calibri Light" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Text fx:id="availableHoursLabel" layoutX="24.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To see available hours">
                      <font>
                         <Font name="Calibri Light" size="18.0" />
                      </font>
@@ -59,34 +58,39 @@
                   <Separator layoutX="334.0" layoutY="32.0" orientation="VERTICAL" prefHeight="374.0" prefWidth="0.0" />
                   <Pane layoutX="343.0" layoutY="14.0" prefHeight="416.0" prefWidth="265.0" style="-fx-background-color: #A368A8; -fx-background-radius: 20;">
                      <children>
-                        <VBox layoutX="27.0" layoutY="90.5" spacing="10.0">
+                        <VBox layoutX="24.0" layoutY="79.0" prefHeight="199.0" prefWidth="226.0" spacing="10.0">
                            <children>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Owner's Name">
+                              <Text fx:id="summaryName" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Owner's Name">
                                  <font>
                                     <Font name="Calibri Light" size="18.0" />
                                  </font>
                               </Text>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Owner's Phone number">
+                              <Text fx:id="summaryPhone" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Owner's Phone number">
                                  <font>
                                     <Font name="Calibri Light" size="18.0" />
                                  </font>
                               </Text>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Pet's Name">
+                              <Text fx:id="summaryPet" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Pet's Name">
                                  <font>
                                     <Font name="Calibri Light" size="18.0" />
                                  </font>
                               </Text>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointment reason">
+                              <Text fx:id="summaryReason" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointment reason">
                                  <font>
                                     <Font name="Calibri Light" size="18.0" />
                                  </font>
                               </Text>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Location">
+                              <Text fx:id="summaryClinic" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Location">
                                  <font>
                                     <Font name="Calibri Light" size="18.0" />
                                  </font>
                               </Text>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Date &amp; TIme Slot">
+                              <Text fx:id="summaryDate" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Date ">
+                                 <font>
+                                    <Font name="Calibri Light" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="summarySlot" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TIme Slot">
                                  <font>
                                     <Font name="Calibri Light" size="18.0" />
                                  </font>
@@ -98,7 +102,7 @@
                               <Font size="20.0" />
                            </font>
                         </Button>
-                        <Text fill="WHITE" layoutX="91.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Summary">
+                        <Text fill="WHITE" layoutX="91.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Summary">
                            <font>
                               <Font name="Calibri Light" size="24.0" />
                            </font>
@@ -111,6 +115,18 @@
                         <Separator layoutX="33.0" layoutY="290.0" prefWidth="200.0" />
                      </children>
                   </Pane>
+                  <Text fx:id="selectedClinicLabel" layoutX="24.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a clinic first">
+                     <font>
+                        <Font name="Calibri Light" size="18.0" />
+                     </font>
+                  </Text>
+                  <Separator layoutX="23.0" layoutY="81.0" prefHeight="3.0" prefWidth="310.0" />
+                  <Text fx:id="errorMsg" layoutX="24.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error Message" textAlignment="CENTER" visible="false" wrappingWidth="273.7409057617188" />
+                  <ScrollPane fx:id="selectSlotPane" hbarPolicy="NEVER" layoutX="19.0" layoutY="178.0" maxHeight="241.0" prefHeight="241.0" prefWidth="310.0" style="-fx-background: white;" styleClass="edge-to-edge" vbarPolicy="NEVER" visible="false">
+                     <content>
+                        <GridPane fx:id="timeSlots" hgap="10.0" maxHeight="427.0" prefHeight="242.0" prefWidth="310.0" vgap="10.0" />
+                     </content>
+                  </ScrollPane>
                </children>
             </Pane>
             <ScrollPane hbarPolicy="NEVER" layoutX="14.0" layoutY="122.0" prefHeight="327.0" prefWidth="320.0" style="-fx-background: D4BEE4;" styleClass="edge-to-edge" vbarPolicy="NEVER">

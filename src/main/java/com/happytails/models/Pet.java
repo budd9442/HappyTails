@@ -1,8 +1,12 @@
 package com.happytails.models;
 
+import com.happytails.utils.DBConnector;
+
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class Pet {
     private int petID;
@@ -12,16 +16,20 @@ public class Pet {
     private int age;
     private String gender;
     private String dob;
+    private String picURL;
 
     // Constructor
-    public Pet(int petID, String petName, String species, String breed, String gender, String dob) {
+    public Pet(int petID, String petName, String species, String breed, String gender, String dob, String url) {
         this.petID = petID;
         this.petName = petName;
         this.species = species;
         this.breed = breed;
         this.gender = gender;
         this.dob = dob;
+        this.picURL = url;
     }
+
+    public String getPicURL(){return this.picURL;};
 
     public int getPetID() {
         return petID;
@@ -91,5 +99,60 @@ public class Pet {
                 ", gender=" + gender +
                 ", dob=" + dob +
                 '}';
+    }
+
+    public double getHeight() {
+        String query = """
+        SELECT m.Value
+        FROM measurements m
+        JOIN pet p ON m.PetID = p.PetID
+        WHERE p.Owner = ? AND m.PetID = ? AND m.MeasurementType = 'height'
+        ORDER BY m.RecordDate DESC
+        LIMIT 1;
+    """;
+
+        // Execute the query using DBConnector
+        List<Double> results = DBConnector.query(
+                query,
+                new String[]{DBConnector.currentUserID, String.valueOf(petID)},
+                resultSet -> {
+                    try {
+                        return resultSet.getDouble("Value");
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                        return null;
+                    }
+                }
+        );
+
+        // Return the height value or null if no result is found
+        return results.isEmpty() ? -1 : results.get(0);
+    }
+    public double getWeight() {
+        String query = """
+        SELECT m.Value
+        FROM measurements m
+        JOIN pet p ON m.PetID = p.PetID
+        WHERE p.Owner = ? AND m.PetID = ? AND m.MeasurementType = 'weight'
+        ORDER BY m.RecordDate DESC
+        LIMIT 1;
+    """;
+
+        // Execute the query using DBConnector
+        List<Double> results = DBConnector.query(
+                query,
+                new String[]{DBConnector.currentUserID, String.valueOf(petID)},
+                resultSet -> {
+                    try {
+                        return resultSet.getDouble("Value");
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                        return null;
+                    }
+                }
+        );
+
+        // Return the height value or null if no result is found
+        return results.isEmpty() ? -1 : results.get(0);
     }
 }

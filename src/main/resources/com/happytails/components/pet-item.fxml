@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,30 +12,47 @@
    <children>
       <Pane prefHeight="188.0" prefWidth="550.0" style="-fx-background-radius: 30; -fx-background-color: #9B7EBD;">
          <children>
-            <Label fx:id="nameLabel" layoutX="248.0" layoutY="25.0" text="Pet Name" textFill="WHITE">
+            <Label fx:id="nameLabel" layoutX="203.0" layoutY="14.0" prefHeight="34.0" prefWidth="183.0" text="Pet Name" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="23.0" />
                </font>
             </Label>
-            <Label fx:id="ageLabel" layoutX="248.0" layoutY="71.0" text="Pet Age" textFill="WHITE">
+            <Label fx:id="dobLabel" layoutX="203.0" layoutY="105.0" text="Date of birth :  2024.01.20 ( 2 Years old )" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="typeLabel" layoutX="248.0" layoutY="113.0" text="Type : Breed" textFill="WHITE">
+            <Label fx:id="heightLabel" layoutX="204.0" layoutY="140.0" text="Height :   50 cm" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Pane layoutX="6.0" layoutY="9.0" prefHeight="171.0" prefWidth="171.0" style="-fx-background-radius: 30; -fx-border-radius: 30;">
-               <children>
-                  <ImageView fx:id="petImage" fitHeight="156.0" fitWidth="158.0" layoutX="6.0" layoutY="8.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@../img/dogg.jpg" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
+            <ImageView fx:id="petImage" fitHeight="168.0" fitWidth="182.0" layoutX="6.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagestore/default/1.dog.png" />
+               </image>
+            </ImageView>
+            <Separator layoutX="203.0" layoutY="57.0" prefHeight="4.0" prefWidth="319.0" />
+            <Label fx:id="speciesLabel" layoutX="392.0" layoutY="14.0" prefHeight="34.0" prefWidth="128.0" text="Species" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="weightLabel" layoutX="386.0" layoutY="140.0" text="Weight : 10kg" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="breedLabel" layoutX="203.0" layoutY="71.0" prefHeight="25.0" prefWidth="183.0" text="Breed : Golden Retriever " textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="genderLabel" layoutX="386.0" layoutY="71.0" text="Gender :  Female" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>
