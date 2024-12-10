@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import io.github.palexdev.materialfx.controls.MFXDatePicker?>
+<?import io.github.palexdev.materialfx.controls.MFXProgressSpinner?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
@@ -11,6 +12,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -25,7 +27,7 @@
                         <Font name="Calibri Light" size="18.0" />
                      </font>
                   </Text>
-                  <MFXTextField borderGap="0.0" floatMode="DISABLED" layoutX="50.0" layoutY="41.0" prefHeight="39.0" prefWidth="265.0" promptText="Search" style="-fx-border-color: transparent;" />
+                  <MFXTextField fx:id="searchBar" borderGap="0.0" floatMode="DISABLED" layoutX="50.0" layoutY="41.0" prefHeight="39.0" prefWidth="265.0" promptText="Search" style="-fx-border-color: transparent;" />
                   <ImageView fitHeight="39.0" fitWidth="31.0" layoutX="12.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@icons/light/icons8-search-100.png" />
@@ -58,7 +60,7 @@
                   <Separator layoutX="334.0" layoutY="32.0" orientation="VERTICAL" prefHeight="374.0" prefWidth="0.0" />
                   <Pane layoutX="343.0" layoutY="14.0" prefHeight="416.0" prefWidth="265.0" style="-fx-background-color: #A368A8; -fx-background-radius: 20;">
                      <children>
-                        <VBox layoutX="24.0" layoutY="79.0" prefHeight="199.0" prefWidth="226.0" spacing="10.0">
+                        <VBox fx:id="summaryList" layoutX="24.0" layoutY="79.0" prefHeight="199.0" prefWidth="226.0" spacing="10.0">
                            <children>
                               <Text fx:id="summaryName" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Owner's Name">
                                  <font>
@@ -97,22 +99,36 @@
                               </Text>
                            </children>
                         </VBox>
-                        <Button layoutX="62.0" layoutY="309.0" mnemonicParsing="false" onMouseClicked="#onContinueClick" prefHeight="31.0" prefWidth="149.0" style="-fx-background-color: D4BEE4;" text="Confirm">
+                        <Button fx:id="confirmBtn" disable="true" layoutX="62.0" layoutY="309.0" mnemonicParsing="false" onMouseClicked="#onContinueClick" prefHeight="31.0" prefWidth="149.0" style="-fx-background-color: D4BEE4;" text="Confirm">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Button>
-                        <Text fill="WHITE" layoutX="91.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Summary">
+                        <Text fx:id="summaryText" fill="WHITE" layoutX="20.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Summary" textAlignment="CENTER" wrappingWidth="226.0">
                            <font>
                               <Font name="Calibri Light" size="24.0" />
                            </font>
                         </Text>
-                        <Button layoutX="62.0" layoutY="359.0" mnemonicParsing="false" onMouseClicked="#onContinueClick" prefHeight="31.0" prefWidth="149.0" style="-fx-background-color: D4BEE4;" text="Cancel">
+                        <Button layoutX="62.0" layoutY="359.0" mnemonicParsing="false" onMouseClicked="#onCancelClick" prefHeight="31.0" prefWidth="149.0" style="-fx-background-color: D4BEE4;" text="Cancel">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Button>
                         <Separator layoutX="33.0" layoutY="290.0" prefWidth="200.0" />
+                        <MFXProgressSpinner fx:id="progressSpinner" layoutX="108.0" layoutY="158.0" prefHeight="39.0" prefWidth="38.0" visible="false">
+                           <color1>
+                              <Color red="0.8313725590705872" green="0.7450980544090271" blue="0.8941176533699036" />
+                           </color1>
+                           <color2>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color2>
+                           <color4>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color4>
+                           <color3>
+                              <Color red="0.8313725590705872" green="0.7450980544090271" blue="0.8941176533699036" />
+                           </color3>
+                        </MFXProgressSpinner>
                      </children>
                   </Pane>
                   <Text fx:id="selectedClinicLabel" layoutX="24.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a clinic first">

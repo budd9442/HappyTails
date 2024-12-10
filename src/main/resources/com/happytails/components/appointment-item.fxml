@@ -6,30 +6,29 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="300.0" prefHeight="300.0" prefWidth="200.0" style="-fx-background-radius: 20; -fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.happytails.controllers.AppointmentItemController">
+<AnchorPane maxHeight="309.0" prefHeight="309.0" prefWidth="200.0" style="-fx-background-radius: 20; -fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.happytails.controllers.AppointmentItemController">
    <children>
-      <Text layoutX="13.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="24th December" wrappingWidth="181.67498779296875">
+      <Text fx:id="dateLabel" layoutX="10.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="24th December" textAlignment="CENTER" wrappingWidth="181.67498779296875">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <Text layoutX="12.0" layoutY="242.0" text="8.00 AM">
+      <Text fx:id="timeLabel" layoutX="59.0" layoutY="221.0" text="8.00 AM" textAlignment="CENTER" wrappingWidth="84.915771484375">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <ImageView fitHeight="37.0" fitWidth="41.0" layoutX="149.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="37.0" fitWidth="41.0" layoutX="83.0" layoutY="226.0" onMouseClicked="#openLocation" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icons/light/icons8-location-48.png" />
          </image>
       </ImageView>
-      <Text layoutX="9.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pet House - Animal Hospital" wrappingWidth="181.67498779296875">
+      <Text fx:id="locationLabel" layoutX="13.0" layoutY="275.0" onMouseClicked="#openLocation" strokeType="OUTSIDE" strokeWidth="0.0" text="Pet House - Animal Hospital" textAlignment="CENTER" wrappingWidth="174.4749755859375">
          <font>
             <Font name="Calibri" size="16.0" />
          </font>
       </Text>
-      <Text layoutX="14.0" layoutY="185.0" text="Random Cat" textAlignment="RIGHT">
+      <Text fx:id="petLabel" layoutX="9.0" layoutY="174.0" text="Random Cat" textAlignment="CENTER" wrappingWidth="181.67498779296875">
          <font>
             <Font size="18.0" />
          </font>
