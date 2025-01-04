@@ -1,6 +1,19 @@
 CREATE DATABASE `happytails`; 
 USE `happytails`;
 
+CREATE TABLE `user` (
+  `user_id` varchar(36) NOT NULL,
+  `name` varchar(250) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `password` varchar(32) NOT NULL,
+  phone varchar(15),
+  address varchar(100),
+  PRIMARY KEY (`user_id`)
+  
+);
+
+
+
 CREATE TABLE `pet` (
   `PetID` int(11) NOT NULL AUTO_INCREMENT,
   `PetName` varchar(100) NOT NULL,
@@ -9,19 +22,15 @@ CREATE TABLE `pet` (
   `Age` int(11) NOT NULL,
   `Gender` char(1) NOT NULL,
   `DateOfBirth` date NOT NULL,
-  PRIMARY KEY (`PetID`)
+  Owner varchar(36) NOT NULL,
+  picURL varchar(256),
+  PRIMARY KEY (`PetID`),
+  FOREIGN KEY (Owner) REFERENCES user(user_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-delete from pet where petId<999;
+INSERT INTO `user` VALUES ('eb0c9283-a79f-11ef-8d99-00155dc4b958','John Doe','John@happytails.org','12121212',NULL,NULL);
 
-ALTER table pet
-ADD COLUMN picURL varchar(256),
-ADD COLUMN Owner varchar(36) NOT NULL,
 
-ADD CONSTRAINT FK_Owner FOREIGN KEY (Owner) REFERENCES user(user_id) ON DELETE CASCADE ON UPDATE CASCADE;
-
-select * from pet;
-delete from pet where petID>0;
 
 INSERT INTO pet (PetID, PetName, Species, Breed, Age, Gender, DateOfBirth, Owner, picURL)
 VALUES 
@@ -29,15 +38,6 @@ VALUES
 (2, 'Mittens', 'Cat', 'Siamese', 2, 'F', '2022-03-10', 'eb0c9283-a79f-11ef-8d99-00155dc4b958', 'default/2.cat.png'),
 (3, 'Charlie', 'Dog', 'Beagle', 5, 'M', '2019-09-25', 'eb0c9283-a79f-11ef-8d99-00155dc4b958', 'default/1.dog.png');
 
-CREATE TABLE `user` (
-  `user_id` varchar(36) NOT NULL,
-  `name` varchar(250) NOT NULL,
-  `email` varchar(250) NOT NULL,
-  `password` varchar(32) NOT NULL,
-  PRIMARY KEY (`id`)
-);
-
-INSERT INTO `user` VALUES ('3a80219a-a7ae-11ef-8d99-00155dc4b958','Buddhika Bandara','bandarabuddhika2@gmail.com','12121212'),('96e3a9fc-a7f0-11ef-99e4-00155dc4b958','Dehemi ','deheminimshara@gmail.com','dehemi123'),('eb0c9283-a79f-11ef-8d99-00155dc4b958','John Doe','John@happytails.org','12121212');
 
 CREATE TABLE `measurements` (
   `MeasurementID` INT NOT NULL AUTO_INCREMENT,
@@ -49,11 +49,6 @@ CREATE TABLE `measurements` (
   FOREIGN KEY (`PetID`) REFERENCES `pet`(`PetID`) ON DELETE CASCADE
 );
 
-select * from measurements;
-select * from pet;
-delete from pet where petid>3;
--- Clear existing data-- Clear existing data
-DELETE FROM measurements where MeasurementID>70 ;
 INSERT INTO measurements (MeasurementID, PetID, RecordDate, Value, MeasurementType)
 VALUES
 (1, 1, '2024-02-01', 3.0, 'weight'),
@@ -126,21 +121,15 @@ VALUES
 (60, 3, '2024-11-01', 65.0, 'height');
 
 CREATE TABLE todo (
-    id INT NOT NULL AUTO_INCREMENT,
+    todo_id INT NOT NULL AUTO_INCREMENT,
     user_id VARCHAR(36) NOT NULL,
     text VARCHAR(255) NOT NULL,
     color VARCHAR(50),
     done BOOLEAN NOT NULL DEFAULT FALSE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (id),
+    PRIMARY KEY (todo_id),
     FOREIGN KEY (user_id) REFERENCES user(user_id)
 );
-
-select * from todo;
-ALTER TABLE todo RENAME COLUMN id TO todo_id;
-
-drop table todo;
-delete from todo where user_id = 'eb0c9283-a79f-11ef-8d99-00155dc4b958';
 
 CREATE TABLE vaccinations (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -186,9 +175,6 @@ VALUES
 ('Ferret', 'Canine Distemper', 'Protects against a highly fatal viral disease in ferrets.', 'First dose at 6-8 weeks, second dose at 10-12 weeks, booster annually.'),
 ('Ferret', 'Rabies', 'Protects against a fatal viral disease transmissible to humans.', 'Administer at 12-16 weeks, booster annually.');
 
-
-select * from vaccinations;
-
 CREATE TABLE vaccination_records (
     pet_id INT NOT NULL,
     vac_id INT NOT NULL,
@@ -199,14 +185,6 @@ CREATE TABLE vaccination_records (
     FOREIGN KEY (vac_id) REFERENCES vaccinations(id) ON DELETE CASCADE
 );
 
-select * from measurements;
-
-SELECT *
-        FROM measurements m
-        WHERE m.PetID = 1 AND m.MeasurementType = 'weight'
-        ORDER BY m.RecordDate DESC
-        LIMIT 1;
-        
 CREATE TABLE `clinics` (
   `clinicID` VARCHAR(36) NOT NULL,
   `email` VARCHAR(64) NOT NULL,
@@ -248,4 +226,4 @@ CREATE TABLE appointments (
     FOREIGN KEY (clinicID) REFERENCES clinics(clinicID) ON DELETE CASCADE
 );
 
-select * from appointments;
+select * from user;
