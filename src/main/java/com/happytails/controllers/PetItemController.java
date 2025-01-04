@@ -40,7 +40,10 @@ public class PetItemController implements Initializable {
         speciesLabel.setText(pet.getSpecies());
 
         String workingDir = System.getProperty("user.dir");
-        petImage.setImage(new Image("file:" + workingDir+ "\\ImageStore\\"+pet.getPicURL()));
+
+        System.out.println("file:" + workingDir+ "\\ImageStore\\"+pet.getPicURL());
+
+        petImage.setImage(new Image("file:" + workingDir+ "\\ImageStore/"+pet.getPicURL()));
         // Parse the date of birth
         LocalDate birthDate = LocalDate.parse(pet.getDob()); // Assumes dob is in the format "YYYY-MM-DD"
         LocalDate currentDate = LocalDate.now();

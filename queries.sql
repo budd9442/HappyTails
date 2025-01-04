@@ -19,7 +19,6 @@ CREATE TABLE `pet` (
   `PetName` varchar(100) NOT NULL,
   `Species` varchar(50) NOT NULL,
   `Breed` varchar(100) DEFAULT NULL,
-  `Age` int(11) NOT NULL,
   `Gender` char(1) NOT NULL,
   `DateOfBirth` date NOT NULL,
   Owner varchar(36) NOT NULL,
@@ -30,13 +29,11 @@ CREATE TABLE `pet` (
 
 INSERT INTO `user` VALUES ('eb0c9283-a79f-11ef-8d99-00155dc4b958','John Doe','John@happytails.org','12121212',NULL,NULL);
 
-
-
-INSERT INTO pet (PetID, PetName, Species, Breed, Age, Gender, DateOfBirth, Owner, picURL)
+INSERT INTO pet (PetID, PetName, Species, Breed, Gender, DateOfBirth, Owner, picURL)
 VALUES 
-(1, 'Buddy', 'Dog', 'Golden Retriever', 3, 'M', '2021-06-15', 'eb0c9283-a79f-11ef-8d99-00155dc4b958', 'default/1.dog.png'),
-(2, 'Mittens', 'Cat', 'Siamese', 2, 'F', '2022-03-10', 'eb0c9283-a79f-11ef-8d99-00155dc4b958', 'default/2.cat.png'),
-(3, 'Charlie', 'Dog', 'Beagle', 5, 'M', '2019-09-25', 'eb0c9283-a79f-11ef-8d99-00155dc4b958', 'default/1.dog.png');
+(1, 'Buddy', 'Dog', 'Golden Retriever','M', '2021-06-15', 'eb0c9283-a79f-11ef-8d99-00155dc4b958', '7acfd702-0873-4e55-afd9-2889590467dc.png'),
+(2, 'Mittens', 'Cat', 'Siamese', 'F', '2022-03-10', 'eb0c9283-a79f-11ef-8d99-00155dc4b958', '569851e4-0585-4f27-82a3-c9ccaf0ad736.png'),
+(3, 'Charlie', 'Dog', 'Beagle','M', '2019-09-25', 'eb0c9283-a79f-11ef-8d99-00155dc4b958', 'a573e552-1d83-40da-ae84-20caa3f92bea.png');
 
 
 CREATE TABLE `measurements` (
