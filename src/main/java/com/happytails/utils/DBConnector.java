@@ -12,7 +12,7 @@ import java.util.function.Function;
 public class DBConnector {
     private static final String DATABASE_URL = "jdbc:mysql://127.0.0.1:3306/happytails?allowPublicKeyRetrieval=true&useSSL=false";
     private static final String DATABASE_USERNAME = "root";
-    private static final String DATABASE_PASSWORD = "root";
+    private static final String DATABASE_PASSWORD = "1234";
     public static String currentUserID = null;
     public static Pet selectedPet = null;
     public static boolean debugMode = false;

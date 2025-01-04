@@ -48,6 +48,7 @@ public class SettingsViewController implements Initializable {
                     DBConnector.printSQLException(e);
                 }
                 return null;
+
             });
         }
     }
