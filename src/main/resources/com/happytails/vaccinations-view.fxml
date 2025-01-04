@@ -13,7 +13,7 @@
 
 <Pane prefHeight="670.0" prefWidth="580.0" style="-fx-background-color: white; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.happytails.controllers.VaccinationsController">
     <children>
-      <Pane layoutX="17.0" layoutY="77.0" prefHeight="175.0" prefWidth="548.0" style="-fx-background-color: #9B7EBD; -fx-background-radius: 20;">
+      <Pane layoutX="17.0" layoutY="77.0" prefHeight="199.0" prefWidth="548.0" style="-fx-background-color: #9B7EBD; -fx-background-radius: 20;">
          <children>
             <ImageView fx:id="selectedPetImage" fitHeight="186.0" fitWidth="200.0" layoutX="366.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -47,7 +47,7 @@
                 <Font name="System Bold" size="23.0" />
             </font>
         </Label>
-        <MFXScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutX="53.0" layoutY="284.0" maxHeight="385.0" prefHeight="385.0" prefWidth="490.0" style="-fx-background: white;" styleClass="edge-to-edge" thumbColor="#9b7ebd" thumbHoverColor="#9b7ebd" trackColor="WHITE" vbarPolicy="AS_NEEDED">
+        <MFXScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutX="16.0" layoutY="284.0" maxHeight="385.0" prefHeight="385.0" prefWidth="548.0" style="-fx-background: white;" styleClass="edge-to-edge" thumbColor="#9b7ebd" thumbHoverColor="#9b7ebd" trackColor="WHITE" vbarPolicy="AS_NEEDED">
             <content>
                 <VBox fx:id="vaccinesList" prefWidth="475.0" spacing="20.0" />
             </content>
