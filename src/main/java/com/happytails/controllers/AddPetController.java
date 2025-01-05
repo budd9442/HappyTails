@@ -192,6 +192,14 @@ public class AddPetController implements Initializable {
             errorMsg.setVisible(true);
             return;
         }
+        try{
+            Integer.parseInt(heightField.getText());
+            Integer.parseInt(weightField.getText());
+        } catch (NumberFormatException e) {
+            errorMsg.setText("Invalid data");
+            errorMsg.setVisible(true);
+            return;
+        }
         errorMsg.setVisible(false);
         addPetBtn.setDisable(true);
         loadingSpinner.setVisible(true);

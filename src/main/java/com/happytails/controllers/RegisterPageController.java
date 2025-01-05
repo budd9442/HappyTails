@@ -44,6 +44,15 @@ public class RegisterPageController {
             );
             return;
         }
+        if(passwordTextBox.getText().length()<8){
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Passwords must be minimum 8 characters long",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
         if(!Objects.equals(passwordTextBox.getText(), confirmPasswordTextBox.getText())){
             JOptionPane.showMessageDialog(
                     null,

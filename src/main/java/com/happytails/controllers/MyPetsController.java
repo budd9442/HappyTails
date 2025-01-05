@@ -31,11 +31,12 @@ public class MyPetsController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         try {
-            String query = "SELECT * FROM Pet";
-            String[] argsArray = {}; // No arguments needed for this query
+            // Query to fetch pets where the Owner matches DBConnector.currentUserID
+            String query = "SELECT * FROM pet WHERE Owner = ?";
+            String[] argsArray = {String.valueOf(DBConnector.currentUserID)}; // Argument array with currentUserID
 
-            // Fetch all pets
-            List<Pet> pets =DBConnector.query(query, argsArray, resultSet -> {
+            // Fetch pets owned by the current user
+            List<Pet> pets = DBConnector.query(query, argsArray, resultSet -> {
                 try {
                     return new Pet(
                             resultSet.getInt("PetID"),
@@ -45,8 +46,6 @@ public class MyPetsController implements Initializable {
                             resultSet.getString("Gender"),
                             resultSet.getString("DateOfBirth"),
                             resultSet.getString("picURL")
-
-
                     );
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -57,25 +56,23 @@ public class MyPetsController implements Initializable {
             // Print all pets
             pets.forEach(System.out::println);
 
-            int i =0;
-            for (Pet pet:pets) {
+            int i = 0;
+            for (Pet pet : pets) {
                 FXMLLoader loader = new FXMLLoader(HappyTails.class.getResource("components/pet-item.fxml"));
                 Parent petItem = loader.load();
                 PetItemController controller = loader.getController();
                 controller.setData(pet);
 
-
                 // Add petItem to the GridPane at the current column and row
                 petsList.add(petItem, 0, i);
 
                 i++;
-                // Update column and row indices
-
             }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     public void backBtnClicked(MouseEvent mouseEvent) {

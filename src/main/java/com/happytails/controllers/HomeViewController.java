@@ -20,8 +20,13 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
+
+import static com.happytails.utils.DBConnector.getNextAppointmentDate;
+import static com.happytails.utils.DBConnector.getUpcomingBirthday;
+import static com.happytails.utils.Utils.getDaySuffix;
 
 public class HomeViewController {
     public HBox petsList;
@@ -38,6 +43,11 @@ public class HomeViewController {
     public Label addItemLabel;
     public Text addTodoErrorLabel;
     public Label todoListEmpty;
+    public Label nextBirthdayLabel;
+    public Label nextAppLabel;
+    public Label dateLabel;
+    public Label monthLabel;
+    public Label yearLabel;
 
     @FXML
     private StackPane mainStackPane; // Reference to the StackPane in menu-view.fxml
@@ -54,7 +64,32 @@ public class HomeViewController {
 
         // Load todo list from the database
         loadTodoListFromDatabase();
+        nextBirthdayLabel.setText(getUpcomingBirthday());
+        nextAppLabel.setText(getNextAppointmentDate());
+        setCurrentDate();
     }
+
+    private void setCurrentDate() {
+        // Get the current date
+        LocalDate currentDate = LocalDate.now();
+
+        // Extract day, month, and year
+        int day = currentDate.getDayOfMonth();
+        String month = currentDate.getMonth().name(); // Full month name
+        int year = currentDate.getYear();
+
+        // Format the day with "th", "st", "nd", "rd"
+        String dayFormatted = day + getDaySuffix(day);
+
+        // Format the month to start with a capital letter
+        String monthFormatted = month.substring(0, 1).toUpperCase() + month.substring(1).toLowerCase();
+
+        // Set the labels
+        dateLabel.setText(dayFormatted);
+        monthLabel.setText(monthFormatted);
+        yearLabel.setText(String.valueOf(year));
+    }
+
 
     private void loadTodoListFromDatabase() throws IOException {
         // Query to retrieve the todos for the current user
@@ -83,7 +118,7 @@ public class HomeViewController {
             }
         }
 
-        todoListEmpty.setVisible(todoList.getChildren().isEmpty());
+        todoListEmpty.setVisible(todoList.getChildren().isEmpty()); // hide todo empty message
 
     }
 

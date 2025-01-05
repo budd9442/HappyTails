@@ -25,9 +25,11 @@ import javafx.scene.text.Font;
 import javafx.fxml.Initializable;
 import javafx.scene.text.Text;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -238,6 +240,11 @@ public class NewAppointmentController implements Initializable {
 
     public void onSelectDate(ActionEvent actionEvent) {
         if(dateField.getValue() == null) return;
+
+        if (dateField.getValue().isBefore(LocalDate.now())){
+            dateField.deselect();
+        }
+
         confirmBtn.setDisable(true);
         summaryDate.setText("Date : " + dateField.getValue().toString());
         summarySlot.setText("");
