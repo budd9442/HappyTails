@@ -49,7 +49,7 @@
                               </Label>
                            </children>
                         </Pane>
-                        <Pane layoutX="202.0" layoutY="207.0" prefHeight="181.0" prefWidth="177.0" style="-fx-background-color: #A368A8; -fx-background-radius: 15;">
+                        <Pane layoutX="202.0" layoutY="207.0" onMouseClicked="#settingsClick" prefHeight="181.0" prefWidth="177.0" style="-fx-background-color: #A368A8; -fx-background-radius: 15;">
                            <children>
                               <ImageView fitHeight="83.0" fitWidth="108.0" layoutX="47.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -77,21 +77,21 @@
                               </Label>
                            </children>
                         </Pane>
-                        <Pane layoutX="14.0" layoutY="207.0" onMouseClicked="#onMedicalHistoryClick" prefHeight="181.0" prefWidth="177.0" style="-fx-background-color: #A368A8; -fx-background-radius: 15;">
+                        <Pane layoutX="14.0" layoutY="207.0" onMouseClicked="#appointmentsClick" prefHeight="181.0" prefWidth="177.0" style="-fx-background-color: #A368A8; -fx-background-radius: 15;">
                            <children>
                               <ImageView fitHeight="114.0" fitWidth="112.0" layoutX="33.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@icons/light/vaccine.png" />
+                                    <Image url="@icons/light/icons8-calendar-96.png" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="27.0" layoutY="146.0" prefHeight="21.0" prefWidth="124.0" text="Medical History" textFill="WHITE">
+                              <Label layoutX="27.0" layoutY="146.0" prefHeight="21.0" prefWidth="124.0" text="Appointments" textFill="WHITE">
                                  <font>
                                     <Font name="Calibri" size="17.0" />
                                  </font>
                               </Label>
                            </children>
                         </Pane>
-                        <Pane layoutX="389.0" layoutY="207.0" prefHeight="181.0" prefWidth="177.0" style="-fx-background-color: #A368A8; -fx-background-radius: 15;">
+                        <Pane layoutX="389.0" layoutY="207.0" onMouseClicked="#onMedicalHistoryClick" prefHeight="181.0" prefWidth="177.0" style="-fx-background-color: #A368A8; -fx-background-radius: 15;">
                            <children>
                               <ImageView fitHeight="98.0" fitWidth="112.0" layoutX="40.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

@@ -51,6 +51,7 @@ public class HomeViewController {
 
     @FXML
     private StackPane mainStackPane; // Reference to the StackPane in menu-view.fxml
+    private MenuViewController menuViewController;
 
     public void setMainStackPane(StackPane mainStackPane) {
         this.mainStackPane = mainStackPane;
@@ -343,5 +344,23 @@ public class HomeViewController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setMenuViewController(MenuViewController menuViewController) {
+        this.menuViewController = menuViewController;
+    }
+
+    public void appointmentsClick(MouseEvent mouseEvent) {
+        menuViewController.clearHighlightedBtn();
+        menuViewController.loadView("appointments-view.fxml");
+        menuViewController.appointmentsBtn.setStyle("-fx-background-color: #FFC100; -fx-background-radius: 0 30 30 0;");
+
+    }
+
+    public void settingsClick(MouseEvent mouseEvent) {
+        menuViewController.clearHighlightedBtn();
+        menuViewController.loadView("settings-view.fxml");
+        menuViewController.settingsBtn.setStyle("-fx-background-color: #FFC100; -fx-background-radius: 0 30 30 0;");
+
     }
 }

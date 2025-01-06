@@ -28,7 +28,7 @@
                   <Font size="18.0" />
                </font>
             </MFXButton>
-            <MFXTextField fx:id="usernameTextBox" floatMode="BORDER" floatingText="Username or Email address" layoutX="86.0" layoutY="176.0" prefHeight="49.0" prefWidth="248.0" style="-fx-padding: 10,0,0,0;" text="John@happytails.org">
+            <MFXTextField fx:id="usernameTextBox" floatMode="BORDER" floatingText="Username or Email address" layoutX="86.0" layoutY="176.0" prefHeight="49.0" prefWidth="248.0" style="-fx-padding: 10,0,0,0;" text="user@happytails.org">
                <font>
                   <Font size="14.0" />
                </font>

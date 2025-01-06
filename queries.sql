@@ -8,9 +8,7 @@ CREATE TABLE `user` (
   `password` varchar(32) NOT NULL,
   phone varchar(15),
   address varchar(100),
-  PRIMARY KEY (`user_id`)
-  
-);
+  PRIMARY KEY (`user_id`)  );
 
 
 

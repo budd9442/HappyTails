@@ -12,7 +12,7 @@
    <children>
       <Pane fx:id="pane" onMouseClicked="#onExpandClick" prefHeight="210.0" prefWidth="542.0" style="-fx-background-radius: 20; -fx-background-color: D4BEE4;">
          <children>
-            <Pane fx:id="colorBox" layoutX="40.0" layoutY="14.0" prefHeight="34.0" prefWidth="34.0" style="-fx-background-color: E195AB; -fx-background-radius: 10; -fx-border-color: white; -fx-border-radius: 10;" />
+            <Pane fx:id="colorBox" layoutX="442.0" layoutY="14.0" prefHeight="34.0" prefWidth="34.0" style="-fx-background-color: E195AB; -fx-background-radius: 15; -fx-border-color: white; -fx-border-radius: 15;" />
             <Accordion layoutX="169.0" layoutY="-8.0" />
             <ImageView fx:id="expandBtn" fitHeight="29.0" fitWidth="34.0" layoutX="490.0" layoutY="16.0" pickOnBounds="true">
                <image>
@@ -20,17 +20,35 @@
                </image>
             </ImageView>
             <Accordion layoutX="81.0" layoutY="-7.0" />
-            <Text fx:id="titleText" layoutX="91.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Canine Distemper">
+            <Text fx:id="titleText" layoutX="38.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Canine Distemper">
                <font>
                   <Font name="Calibri" size="22.0" />
                </font>
             </Text>
-            <Text fx:id="statusText" layoutX="377.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Not Completed" textAlignment="RIGHT" wrappingWidth="97.00274658203125" />
-            <Text fx:id="infoText1" layoutX="40.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Protects against a contagious viral disease that attacks the respiratory, gastrointestinal, and nervous systems." wrappingWidth="389.03790283203125" />
-            <Text fx:id="infoText2" layoutX="40.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First dose at 6-8 weeks, followed by boosters every 3-4 weeks until 16 weeks." wrappingWidth="368.5745849609375" />
-            <MFXButton fx:id="completeBtn" layoutX="22.0" layoutY="167.0" onMouseClicked="#markComplete" prefHeight="26.0" prefWidth="139.0" text="Mark as vaccinated" />
-            <MFXButton fx:id="incompleteBtn" layoutX="217.0" layoutY="167.0" onMouseClicked="#markIncomplete" prefHeight="26.0" prefWidth="153.0" text="Mark as not vaccinated" />
-            <MFXButton fx:id="missedBtn" layoutX="409.0" layoutY="167.0" onMouseClicked="#markMissed" prefHeight="26.0" prefWidth="117.0" text="Mark as missed" />
+            <Text fx:id="statusText" layoutX="329.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Not Completed" textAlignment="RIGHT" wrappingWidth="97.00274658203125">
+               <font>
+                  <Font size="13.0" />
+               </font></Text>
+            <Text fx:id="infoText1" layoutX="44.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Protects against a contagious viral disease that attacks the respiratory, gastrointestinal, and nervous systems." wrappingWidth="453.3746337890625">
+               <font>
+                  <Font name="Calibri" size="15.0" />
+               </font></Text>
+            <Text fx:id="infoText2" layoutX="44.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First dose at 6-8 weeks, followed by boosters every 3-4 weeks until 16 weeks." textAlignment="JUSTIFY" wrappingWidth="433.3746337890625">
+               <font>
+                  <Font name="Calibri Light" size="15.0" />
+               </font></Text>
+            <MFXButton fx:id="completeBtn" layoutX="167.0" layoutY="159.0" onMouseClicked="#markComplete" prefHeight="34.0" prefWidth="104.0" style="-fx-background-radius: 15;" text="vaccinated">
+               <font>
+                  <Font size="13.0" />
+               </font></MFXButton>
+            <MFXButton fx:id="incompleteBtn" layoutX="283.0" layoutY="160.0" onMouseClicked="#markIncomplete" prefHeight="33.0" prefWidth="131.0" style="-fx-background-radius: 15;" text="Not vaccinated">
+               <font>
+                  <Font size="13.0" />
+               </font></MFXButton>
+            <MFXButton fx:id="missedBtn" layoutX="427.0" layoutY="159.0" onMouseClicked="#markMissed" prefHeight="34.0" prefWidth="97.0" style="-fx-background-radius: 15;" text="Missed">
+               <font>
+                  <Font size="13.0" />
+               </font></MFXButton>
          </children>
       </Pane>
    </children>

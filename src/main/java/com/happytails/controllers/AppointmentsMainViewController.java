@@ -9,6 +9,7 @@ import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -37,9 +38,15 @@ public class AppointmentsMainViewController implements Initializable {
     public void setRoot(StackPane sp){
         root = sp;
     }
+    public void setData(String name, String phone){
+        if(phone != null) phoneField.setText(phone);
+        nameField.setText(name);
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
 
         reasonsList.getItems().addAll(new String[] {"Routine Checkup",
                 "Vaccinations",
@@ -102,18 +109,35 @@ public class AppointmentsMainViewController implements Initializable {
         }
         populatePetList();
 
+
+
     }
 
     public void onContinueClick(MouseEvent mouseEvent) throws IOException {
+
+
+        // Validate fields
+        if (nameField.getText().isEmpty() || phoneField.getText().isEmpty() ||
+                petList.getText().isEmpty() || reasonsList.getText().isEmpty()) {
+            // Show popup for validation error
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Validation Error");
+            alert.setHeaderText(null);
+            alert.setContentText("All fields must be filled.");
+            alert.showAndWait();
+            return;
+        }
+
+        // Proceed with loading the new appointment view
         FXMLLoader loader = new FXMLLoader(HappyTails.class.getResource("new-appointment.fxml"));
-        Parent newAppointment =  loader.load();
+        Parent newAppointment = loader.load();
         NewAppointmentController controller = loader.getController();
         controller.setRoot(root);
-        System.out.println(nameField.getText()+ " " + phoneField.getText() + " " + petList.getText() + " " + reasonsList.getText());
         controller.setData(nameField.getText(), phoneField.getText(), petList.getText(), reasonsList.getText());
         root.getChildren().removeAll();
         root.getChildren().add(newAppointment);
     }
+
 
     private void populatePetList() {
         String query = "SELECT PetName, Species, PetID FROM pet";

@@ -62,25 +62,22 @@ public class MenuViewController implements Initializable {
         //petsBtn.setStyle("-fx-background-color: transparent;");
     }
 
-    private void loadView(String fxmlFile) {
+    public void loadView(String fxmlFile) {
         try {
             FXMLLoader loader = new FXMLLoader(HappyTails.class.getResource(fxmlFile));
             Parent view = loader.load();
 
-//            if(loader.getController().getClass()==HomeViewController.class){
-//                HomeViewController controller = loader.getController();
-//                controller.setMainStackPane(stackPane);
-//            }
-
-
-
-            //Parent view = FXMLLoader.load(Objects.requireNonNull(HappyTails.class.getResource(fxmlFile)));
+            if ("home-view.fxml".equals(fxmlFile)) {
+                HomeViewController homeViewController = loader.getController();
+                homeViewController.setMenuViewController(this); // Pass MenuViewController to HomeViewController
+            }
 
             stackPane.getChildren().setAll(view); // Replace current content
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 
     public void onLogoutClick(MouseEvent mouseEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HappyTails.class.getResource("login-view.fxml"));

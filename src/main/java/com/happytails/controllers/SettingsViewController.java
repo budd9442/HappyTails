@@ -5,6 +5,7 @@ import io.github.palexdev.materialfx.controls.MFXPasswordField;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import io.github.palexdev.materialfx.controls.MFXToggleButton;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
@@ -58,13 +59,18 @@ public class SettingsViewController implements Initializable {
             String newPassword = newPass.getText().trim();
             String confirmPassword = confirmPass.getText().trim();
 
+            if (newPassword.length() < 8) {
+                showAlert(Alert.AlertType.ERROR, "Validation Error", "New password must be at least 8 characters long.");
+                return;
+            }
+
             if (newPassword.isEmpty() || confirmPassword.isEmpty() || currentPassword.isEmpty()) {
-                System.out.println("Please fill in all password fields.");
+                showAlert(Alert.AlertType.ERROR, "Validation Error", "Please fill in all the required fields.");
                 return;
             }
 
             if (!newPassword.equals(confirmPassword)) {
-                System.out.println("New password and confirmation password do not match.");
+                showAlert(Alert.AlertType.ERROR, "Validation Error", "Passwords do not match");
                 return;
             }
 
@@ -75,16 +81,16 @@ public class SettingsViewController implements Initializable {
                     String storedPassword = resultSet.getString("password");
 
                     if (!storedPassword.equals(currentPassword)) {
-                        System.out.println("Current password is incorrect.");
+                        showAlert(Alert.AlertType.ERROR, "Error", "Password is wrong");
                     } else {
                         // Update the password
                         String updateQuery = "UPDATE user SET password = ? WHERE user_id = ?";
                         int rowsAffected = DBConnector.executeUpdate(updateQuery, new String[]{newPassword, DBConnector.currentUserID});
 
                         if (rowsAffected > 0) {
-                            System.out.println("Password updated successfully.");
+                            showAlert(Alert.AlertType.CONFIRMATION, "Success", "Password Updated.");
                         } else {
-                            System.out.println("Failed to update password.");
+                            showAlert(Alert.AlertType.ERROR, "Error", "Unknown Error");
                         }
                     }
                 } catch (SQLException e) {
@@ -93,7 +99,7 @@ public class SettingsViewController implements Initializable {
                 return null;
             });
         } else {
-            System.out.println("User ID is not set. Please log in.");
+            System.out.println("User ID is not set. Please log in."); // never happens
         }
     }
 
@@ -104,11 +110,41 @@ public class SettingsViewController implements Initializable {
 
     }
 
-
     public void saveChanges(MouseEvent mouseEvent) {
         if (DBConnector.currentUserID != null) {
-            String query = "UPDATE user SET name = ?, email = ?, phone = ?, address = ? WHERE user_id = ?";
+            // Validate input fields
+            if (nameField.getText().trim().isEmpty()) {
+                showAlert(Alert.AlertType.ERROR, "Validation Error", "Name cannot be empty.");
+                return;
+            }
 
+            if (mailField.getText().trim().isEmpty()) {
+                showAlert(Alert.AlertType.ERROR, "Validation Error", "Email cannot be empty.");
+                return;
+            }
+
+            if (!isValidEmail(mailField.getText().trim())) {
+                showAlert(Alert.AlertType.ERROR, "Validation Error", "Please enter a valid email address.");
+                return;
+            }
+
+            if (phoneFIeld.getText().trim().isEmpty()) {
+                showAlert(Alert.AlertType.ERROR, "Validation Error", "Phone number cannot be empty.");
+                return;
+            }
+
+            if (!isValidPhoneNumber(phoneFIeld.getText().trim())) {
+                showAlert(Alert.AlertType.ERROR, "Validation Error", "Please enter a valid phone number.");
+                return;
+            }
+
+            if (addressField.getText().trim().isEmpty()) {
+                showAlert(Alert.AlertType.ERROR, "Validation Error", "Address cannot be empty.");
+                return;
+            }
+
+            // Prepare and execute the update query
+            String query = "UPDATE user SET name = ?, email = ?, phone = ?, address = ? WHERE user_id = ?";
             String[] updatedValues = new String[]{
                     nameField.getText().trim(),
                     mailField.getText().trim(),
@@ -119,13 +155,38 @@ public class SettingsViewController implements Initializable {
 
             int rowsAffected = DBConnector.executeUpdate(query, updatedValues);
 
+            // Show appropriate success or failure message
             if (rowsAffected > 0) {
-                System.out.println("User details updated successfully.");
+                showAlert(Alert.AlertType.INFORMATION, "Success", "User details updated successfully.");
             } else {
-                System.out.println("Failed to update user details. Please check your input.");
+                showAlert(Alert.AlertType.ERROR, "Error", "Failed to update user details. Please try again.");
             }
+        } else {
+            showAlert(Alert.AlertType.ERROR, "Error", "No user is currently logged in.");
         }
     }
+
+    // Utility method to display alerts
+    private void showAlert(Alert.AlertType type, String title, String message) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    // Utility method to validate email
+    private boolean isValidEmail(String email) {
+        String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+        return email.matches(emailRegex);
+    }
+
+    // Utility method to validate phone number
+    private boolean isValidPhoneNumber(String phone) {
+        String phoneRegex = "^[0-9]{10}$"; // Adjust the regex as per your requirement
+        return phone.matches(phoneRegex);
+    }
+
 
 
 }

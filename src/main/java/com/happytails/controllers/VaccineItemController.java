@@ -94,7 +94,6 @@ public class VaccineItemController implements Initializable {
         String[] deleteParams = new String[]{String.valueOf(petId), String.valueOf(vaccineId)}; // Assume petID and vacID are available
         DBConnector.executeUpdate(deleteQuery, deleteParams);
 
-
         String query = "INSERT INTO vaccination_records (pet_id, vac_id, vaccination_date,status) VALUES (?, ?,?,?)";
 
         String[] params = new String[]{String.valueOf(petId), String.valueOf(vaccineId), LocalDate.now().toString(),"Vaccinated"}; // Assume petID and vacID are available

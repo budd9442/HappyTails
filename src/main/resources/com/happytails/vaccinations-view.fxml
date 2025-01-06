@@ -47,7 +47,7 @@
                 <Font name="System Bold" size="23.0" />
             </font>
         </Label>
-        <MFXScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutX="16.0" layoutY="284.0" maxHeight="385.0" prefHeight="385.0" prefWidth="548.0" style="-fx-background: white;" styleClass="edge-to-edge" thumbColor="#9b7ebd" thumbHoverColor="#9b7ebd" trackColor="WHITE" vbarPolicy="AS_NEEDED">
+        <MFXScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutX="16.0" layoutY="293.0" maxHeight="385.0" prefHeight="376.0" prefWidth="548.0" style="-fx-background: white;" styleClass="edge-to-edge" thumbColor="#9b7ebd" thumbHoverColor="#9b7ebd" trackColor="WHITE" vbarPolicy="AS_NEEDED">
             <content>
                 <VBox fx:id="vaccinesList" prefWidth="475.0" spacing="20.0" />
             </content>
